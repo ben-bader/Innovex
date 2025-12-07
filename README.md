@@ -86,7 +86,7 @@ Open http://localhost:3000
 
 2. Browse events by category, location, or popularity.
 
-3. Click on an event to view details and join discussions.
+3. Click on an event to view details and buy ticket.
 
 4. Enjoy smooth animations and interactive UI elements.
 
