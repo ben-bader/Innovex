@@ -3,14 +3,14 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   devIndicators:false,
-  images: {
-    remotePatterns: [
+  async redirects() {
+    return [
       {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-        pathname: "/**", // allow all paths under this domain
+        source: '/',
+        destination: '/main',
+        permanent: false,
       },
-    ],
+    ];
   },
 
 };

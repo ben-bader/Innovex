@@ -9,23 +9,21 @@ const Countdown = dynamic(()=> import("react-countdown"),{ssr : false})
 function DateCard({text, number, bg, border}: {text?: string; number?: number; bg?: string; border?: boolean;}) {
     
 
-    // keep the existing JSX (which references the countdown) in sync
+   
 
     return (
-        <motion.div
-        initial={{opacity : 0,y:randInt(50,100)}}
-        animate={{opacity : 1,y:0}}
-        transition={{duration:0.3,ease:"easeIn"}}
-        className={`flex flex-col ${border ? "border border-white/50" : ""} backdrop-blur-xl py-6 px-4 w-36 shadow-2xl rounded-lg ${bg}`}
+        <div
+   
+        className={`flex flex-col ${border ? "border border-white/30" : ""} backdrop-blur-xl py-6 px-4 w-36 shadow-2xl rounded-lg ${bg}`}
         >
         <span className="text-start font-bold text-8xl">{number}</span>
         <span className="text-start font-squid ">{text}</span>
-        </motion.div>
+        </div>
     )
 }
 const renderer = ({ days, hours, minutes, seconds } : { days: number; hours: number; minutes: number; seconds: number;}) => {
 
-    // Render countdown
+
     return (
       <div className="flex items-center justify-center gap-6 max-sm:mt-12">
 

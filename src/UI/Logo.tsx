@@ -4,15 +4,16 @@ import Image from "next/image";
 
 const Logo = () => {
   return (
+    <a href="/main">
     <div className="flex items-center justify-center space-x-2">
-      <svg
+    <svg
         xmlns="http://www.w3.org/2000/svg"
         width="30"
         height="30"
         viewBox="0 0 360 360"
       >
         <g
-          stroke="oklch(70.7% 0.165 254.624)"
+          stroke="oklch(62.3% 0.214 259.815)"
           strokeWidth="8"
           strokeLinecap="round"
         >
@@ -37,8 +38,8 @@ const Logo = () => {
         </g>
 
         <g
-          stroke="oklch(70.7% 0.165 254.624)"
-          fill="oklch(70.7% 0.165 254.624)"
+          stroke="oklch(62.3% 0.214 259.815)"
+          fill="oklch(62.3% 0.214 259.815)"
           strokeWidth="10"
         >
           <circle cx="60" cy="180" r="44" />
@@ -47,8 +48,8 @@ const Logo = () => {
         </g>
       </svg>
 
-      <h1 className="font-squid text-2xl text-transparent bg-clip-text bg-gradient-to-tr from-blue-700 to-purple-400">innovex</h1>
-    </div>
+      <h1 className="font-squid text-2xl text-transparent bg-clip-text bg-gradient-to-tr from-blue-700 to-purple-400">innovex</h1> 
+    </div></a> 
   );
 };
 export default Logo;

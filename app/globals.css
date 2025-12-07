@@ -70,7 +70,10 @@
     --foreground: #ededed;
   }
 }
-
+html{
+  scroll-behavior: smooth;
+  transition: all 0.3s ease-in-out;
+}
 body {
   background: var(--background);
   color: var(--foreground);
@@ -118,7 +121,6 @@ body {
   width: max-content;
   animation: scroll 30s linear infinite;
 }
-
 
 
 
