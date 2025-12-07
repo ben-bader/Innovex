@@ -22,14 +22,13 @@ export default function Profile() {
     const res = await fetch("/api/user/update", {
       method: "PUT",
       headers: { "Content-type": "application/json" },
-      body: JSON.stringify({ id: session?.user.id, name, email }),
+      body: JSON.stringify({ userId: session?.user?.id, name, email }),
     });
     if (!res?.ok) {
       setInfosMessage("Failed to update user info");
       return;
     }
     const data = await res.json();
-    console.log(data);
     update?.();
   }
 
@@ -45,7 +44,7 @@ export default function Profile() {
     const res = await fetch("/api/user/update-password", {
       method: "PUT",
       headers: { "Content-type": "application/json" },
-      body: JSON.stringify({ id: session?.user?.id, newPassword }),
+      body: JSON.stringify({ userId: session?.user?.id, newPassword }),
     });
     if (!res?.ok) {
       setPassMessage("Failed to update password");
@@ -102,7 +101,10 @@ export default function Profile() {
               className="!focus:scale-100"
             />
           </label>
-          {Infosmessage && <p className="text-red-500">*{Infosmessage}</p>}
+          {
+          Infosmessage && 
+          <p className="text-red-500">*{Infosmessage}</p>
+          }
           <div className="flex justify-end">
             <button className="w-full text-center py-2 bg-gray-300 text-black rounded-md text-lg cursor-pointer focus:scale-[0.98] duration-300 transition-all">
               Confirm
