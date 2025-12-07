@@ -76,7 +76,7 @@ Open http://localhost:3000
 --- 
 
 ## 📷 Preview
-![Preview](./Images/preview.png)
+![Preview](./public/Images/preview.png)
     
 --- 
 
