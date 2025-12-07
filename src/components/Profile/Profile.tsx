@@ -22,7 +22,7 @@ export default function Profile() {
     const res = await fetch("/api/user/update", {
       method: "PUT",
       headers: { "Content-type": "application/json" },
-      body: JSON.stringify({ userId: session?.user?.id, name, email }),
+      body: JSON.stringify({ id: session?.user.id, name, email }),
     });
     if (!res?.ok) {
       setInfosMessage("Failed to update user info");
@@ -45,7 +45,7 @@ export default function Profile() {
     const res = await fetch("/api/user/update-password", {
       method: "PUT",
       headers: { "Content-type": "application/json" },
-      body: JSON.stringify({ userId: session?.user?.id, newPassword }),
+      body: JSON.stringify({ id: session?.user?.id, newPassword }),
     });
     if (!res?.ok) {
       setPassMessage("Failed to update password");
