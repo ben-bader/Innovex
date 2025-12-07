@@ -4,7 +4,7 @@ import Logo from "@/src/UI/Logo";
 import { useState } from "react";
 import { CiMenuFries } from "react-icons/ci";
 import { HiXMark } from "react-icons/hi2";
-import { navItems } from "../../public/Data/export";
+import { navItems } from "../../public/data/export";
 import { useSession } from "next-auth/react";
 import ProfileMenu from "../UI/ProfileMenu";
 import { IoIosArrowDown } from "react-icons/io";

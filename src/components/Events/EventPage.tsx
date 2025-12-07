@@ -6,7 +6,7 @@ import Loader from "@/src/UI/Loader";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
-import { people } from "@/public/Data/export";
+import { people } from "@/public/data/export";
 
 const EventPage = () => {
   const { events, loading } = useEvents();

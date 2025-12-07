@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import { Activity, Radio, Bell, Ticket, Users } from "lucide-react";
 import { motion } from "framer-motion";
-import { people } from "@/public/Data/export";
+import { people } from "@/public/data/export";
 import Image from "next/image";
 import { useEvents } from "../../hooks/useEvents";
 

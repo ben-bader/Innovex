@@ -1,5 +1,5 @@
 "use client";
-import { brands } from "@/public/Data/export";
+import { brands } from "@/public/data/export";
 import Image from "next/image";
 
 export default function Brands() {
