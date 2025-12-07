@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import { Activity, Radio, Bell, Ticket, Users } from "lucide-react";
 import { motion } from "framer-motion";
-import { people } from "@/public/data/export";
+import { people } from "@/public/Data/export";
 import Image from "next/image";
 import { useEvents } from "../../hooks/useEvents";
 
@@ -11,7 +11,7 @@ const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 export default function About() {
   const options = {
-    chart: { id: "events-chart", toolbar: false, zoom: { enabled: false } },
+    chart: { id: "events-chart", toolbar: { show: true }, zoom: { enabled: false } },
 
     xaxis: {
       categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "jul"],
@@ -102,6 +102,7 @@ export default function About() {
               </span>
             </h1>
             <Chart
+            
               options={options}
               series={series}
               type="line"

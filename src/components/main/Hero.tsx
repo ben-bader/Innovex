@@ -1,6 +1,6 @@
 "use client";
 import Button from "@/src/UI/Button";
-import { people } from "@/public/data/export";
+import { people } from "@/public/Data/export";
 import EventCountdown from "@/src/UI/EventCountDown";
 import Image from "next/image";
 import { motion } from "framer-motion";
