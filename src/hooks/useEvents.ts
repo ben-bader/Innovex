@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-// hook bach tfetchi events 
+// hook bach tfetchi events
 //type dyal event kan9ado interface evnet
 export interface Event {
   id: number;
@@ -16,9 +16,9 @@ export interface Event {
   description: string;
 }
 
-export function useEvents(){
-const [events, setEvents] = useState<Event[]>([]);
-const [loading,setLoading] = useState(true);
+export function useEvents() {
+  const [events, setEvents] = useState<Event[]>([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchEvents = async () => {
       try {
@@ -26,8 +26,8 @@ const [loading,setLoading] = useState(true);
         if (!res.ok) throw new Error("Failed to fetch events");
 
         const data = await res.json();
-        
-        setEvents(data.events|| []);
+
+        setEvents(data.events || []);
       } catch (error) {
         console.error("Error loading events:", error);
         setEvents([]);
@@ -38,6 +38,5 @@ const [loading,setLoading] = useState(true);
 
     fetchEvents();
   }, []);
-  return {events , loading};
-
+  return { events, loading };
 }

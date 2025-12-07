@@ -9,7 +9,7 @@ export default function TermsPage() {
   return (
     <section
       id="terms"
-      className="flex flex-col items-center justify-center px-20 py-20 max-sm:px-4"
+      className="flex flex-col items-center justify-center px-20 py-20 max-sm:px-6"
     >
       <div className="absolute pointer-events-none w-[500px] h-[700px] hero-gradient rounded-tl-[300px] -left-[500px] top-0 -z-10" />
 

@@ -9,7 +9,7 @@ import Loader from "@/src/UI/Loader";
 import { useSession } from "next-auth/react";
 
 export default function Home() {
-  const { data :session , status} = useSession();
+  const { data: session, status } = useSession();
   const { events, loading } = useEvents();
   if (loading || events.length === 0) {
     return <Loader />;
@@ -20,11 +20,12 @@ export default function Home() {
       className="flex max-sm:flex-col items-center justify-between max-sm:justify-center px-20 pt-50 pb-20 max-sm:px-6 text-center"
     >
       <div className="absolute pointer-events-none w-[500px] h-[700px] hero-gradient rounded-tl-[300px] -left-[500px] top-0 -z-1" />
-      <motion.div 
-      initial={{opacity:0}}
-      animate={{opacity:1}}
-      transition={{duration:1,ease:"easeInOut"}}
-      className="text-start flex w-full flex-col justify-center -mt-36">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, ease: "easeInOut" }}
+        className="text-start flex w-full flex-col justify-center -mt-36"
+      >
         <span className="text-sm text-center w-30 py-1 bg-pink-500 rounded-full mb-2">
           {events[0].date}
         </span>
@@ -50,8 +51,11 @@ export default function Home() {
         <div className="flex items-center gap-2">
           <Button
             text="Buy Ticket ->"
-            href={status === "authenticated" ? `/main/events/${events[0].id}` : "/access"}
-      
+            href={
+              status === "authenticated"
+                ? `/main/events/${events[0].id}`
+                : "/access"
+            }
           />
           <button className="px-4 max-md:px-3 py-3 text-lg max-md:text-md cursor-pointer text-white/80 hover:text-white transition">
             Learn More

@@ -1,6 +1,5 @@
 "use client";
 
-
 import { motion } from "framer-motion";
 
 export default function CookiesPolicyPage() {
@@ -9,7 +8,7 @@ export default function CookiesPolicyPage() {
   return (
     <section
       id="cookies"
-      className="flex flex-col items-center justify-center px-20 py-20 max-sm:px-4"
+      className="flex flex-col items-center justify-center px-20 py-20 max-sm:px-6"
     >
       <div className="absolute pointer-events-none w-[500px] h-[700px] hero-gradient rounded-tl-[300px] -left-[500px] top-0 -z-10" />
 
@@ -25,27 +24,36 @@ export default function CookiesPolicyPage() {
             Cookies Policy
           </span>
 
-          <h1 className="lg:text-6xl text-4xl font-semibold mb-4"><span className="font-squid text-transparent bg-clip-text bg-gradient-to-tr from-purple-400 to-blue-500">Cookies</span> Policy</h1>
+          <h1 className="lg:text-6xl text-4xl font-semibold mb-4">
+            <span className="font-squid text-transparent bg-clip-text bg-gradient-to-tr from-purple-400 to-blue-500">
+              Cookies
+            </span>{" "}
+            Policy
+          </h1>
           <p className="text-gray-300 max-w-2xl">
-            This Cookies Policy explains how Innovex uses cookies and similar tracking
-            technologies. By using our website, you agree to our use of cookies. Last updated:{" "}
-            {updatedAt}.
+            This Cookies Policy explains how Innovex uses cookies and similar
+            tracking technologies. By using our website, you agree to our use of
+            cookies. Last updated: {updatedAt}.
           </p>
         </div>
 
         {/* content */}
         <article className="bg-gray-900/50 border border-white/10 rounded-2xl p-8 text-gray-200 space-y-6">
           <section>
-            <h2 className="text-2xl font-semibold mb-2">1. What Are Cookies?</h2>
+            <h2 className="text-2xl font-semibold mb-2">
+              1. What Are Cookies?
+            </h2>
             <p className="text-sm">
-              Cookies are small text files stored on your device to enhance your browsing
-              experience, remember preferences, and help us analyze how users interact with our
-              platform.
+              Cookies are small text files stored on your device to enhance your
+              browsing experience, remember preferences, and help us analyze how
+              users interact with our platform.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-2">2. How We Use Cookies</h2>
+            <h2 className="text-2xl font-semibold mb-2">
+              2. How We Use Cookies
+            </h2>
             <p className="text-sm mb-3">
               Innovex uses cookies for several purposes, including:
             </p>
@@ -60,53 +68,67 @@ export default function CookiesPolicyPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-2">3. Types of Cookies We Use</h2>
+            <h2 className="text-2xl font-semibold mb-2">
+              3. Types of Cookies We Use
+            </h2>
             <ul className="list-disc ml-6 text-sm space-y-2">
               <li>
-                <strong>Essential Cookies:</strong> Required for the website to operate.
+                <strong>Essential Cookies:</strong> Required for the website to
+                operate.
               </li>
               <li>
-                <strong>Analytics Cookies:</strong> Help us measure and understand usage.
+                <strong>Analytics Cookies:</strong> Help us measure and
+                understand usage.
               </li>
               <li>
-                <strong>Functional Cookies:</strong> Remember preferences such as language.
+                <strong>Functional Cookies:</strong> Remember preferences such
+                as language.
               </li>
               <li>
-                <strong>Marketing Cookies:</strong> Used only if you consent to personalized ads.
+                <strong>Marketing Cookies:</strong> Used only if you consent to
+                personalized ads.
               </li>
             </ul>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-2">4. Third-Party Cookies</h2>
+            <h2 className="text-2xl font-semibold mb-2">
+              4. Third-Party Cookies
+            </h2>
             <p className="text-sm">
-              Some third parties (such as analytics services or embedded content providers)
-              may place cookies on your device. These third parties are responsible for their
-              own cookies and may have their own privacy policies.
+              Some third parties (such as analytics services or embedded content
+              providers) may place cookies on your device. These third parties
+              are responsible for their own cookies and may have their own
+              privacy policies.
             </p>
           </section>
 
           <section>
             <h2 className="text-2xl font-semibold mb-2">5. Managing Cookies</h2>
             <p className="text-sm">
-              You can disable or delete cookies through your browser settings at any time.
-              However, disabling essential cookies may affect functionality or performance of
-              the website.
+              You can disable or delete cookies through your browser settings at
+              any time. However, disabling essential cookies may affect
+              functionality or performance of the website.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-2">6. Updates to This Policy</h2>
+            <h2 className="text-2xl font-semibold mb-2">
+              6. Updates to This Policy
+            </h2>
             <p className="text-sm">
-              We may update this Cookies Policy when needed. Any updates will be posted on
-              this page with the revised date.
+              We may update this Cookies Policy when needed. Any updates will be
+              posted on this page with the revised date.
             </p>
           </section>
 
           <div className="pt-4 border-t border-white/5 text-sm text-gray-400">
             <p>
               If you have questions about this Cookies Policy, contact{" "}
-              <a className="text-blue-400 underline" href="mailto:hello@innovex.com">
+              <a
+                className="text-blue-400 underline"
+                href="mailto:hello@innovex.com"
+              >
                 hello@innovex.com
               </a>
               .

@@ -32,15 +32,15 @@ const CategoryPage = () => {
           category
         </h1>
         <div className="flex justify-center">
-        <Button  text="Explore All Events ->" href="/main/events"/>
+          <Button text="Explore All Events ->" href="/main/events" />
         </div>
       </div>
       <div className="grid relative grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-4">
-    <div className="absolute pointer-events-none w-[20rem] max-sm:w-[10rem] h-[30rem] bg-sky-500 blur-[200px] rounded-tl-[300px] right-0 top-[20%]" />
-      <div className="absolute pointer-events-none w-[400px] h-[400px] rounded-full bg-fuchsia-400 blur-[200px] rounded-tl-[300px] -left-0 top-[90%]" />
-      {eventsCategory.map((event) => (
-        <EventCard key={event.id} event={event} />
-      ))}
+        <div className="absolute pointer-events-none w-[20rem] max-sm:w-[10rem] h-[30rem] bg-sky-500 blur-[200px] rounded-tl-[300px] right-0 top-[20%]" />
+        <div className="absolute pointer-events-none w-[400px] h-[400px] rounded-full bg-fuchsia-400 blur-[200px] rounded-tl-[300px] -left-0 top-[90%]" />
+        {eventsCategory.map((event) => (
+          <EventCard key={event.id} event={event} />
+        ))}
       </div>
     </div>
   );

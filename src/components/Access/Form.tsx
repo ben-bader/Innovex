@@ -17,8 +17,8 @@ import { set } from "mongoose";
 const Form = () => {
   const [toggle, setToggle] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const [signupMessage,setSignupMessage] = useState<string[]>([]);
-  const [loginMessage,setLoginMessage] = useState("");
+  const [signupMessage, setSignupMessage] = useState<string[]>([]);
+  const [loginMessage, setLoginMessage] = useState("");
   // tsjil
   const [form, setForm] = useState({ name: "", email: "", password: "" });
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -34,13 +34,13 @@ const Form = () => {
     e.preventDefault();
     setLoading(true);
     if (form.password !== confirmPassword) {
-        const signupMessage = [];
-        signupMessage.push("Passwords do not match");
-        setSignupMessage(signupMessage);
-        setLoading(false);
-        return; 
+      const signupMessage = [];
+      signupMessage.push("Passwords do not match");
+      setSignupMessage(signupMessage);
+      setLoading(false);
+      return;
     }
-    
+
     const res = await fetch("/api/auth/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -56,12 +56,10 @@ const Form = () => {
         redirect: false,
       });
 
-
       if (!signInRes?.error) router.push("/main/events");
       else alert("Signup succeeded but auto-login failed.");
-
     } else alert(data.error || "Signup failed");
-    
+
     setLoading(false);
   }
   async function handleLogin(e: React.FormEvent) {
@@ -73,8 +71,7 @@ const Form = () => {
       redirect: false,
     });
     console.log("LOGIN RES:", res);
-  
-    
+
     if (res?.error) setLoginMessage("Invalid credentials");
     if (res?.ok) router.push("/main/events");
     setLoading(false);
@@ -124,16 +121,24 @@ const Form = () => {
                   type="email"
                   placeholder="Email"
                   value={email}
-                  onChange={(e  : React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setEmail(e.target.value)
+                  }
                 />
                 <Input
                   type="password"
                   placeholder="Password"
                   value={password}
-                  onChange={(e : React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setPassword(e.target.value)
+                  }
                 />
-                {loginMessage &&  <p className="text-red-500 w-full text-left -mb-4">*{loginMessage}</p>}
-              
+                {loginMessage && (
+                  <p className="text-red-500 w-full text-left -mb-4">
+                    *{loginMessage}
+                  </p>
+                )}
+
                 <SecondaryButton text="Log In" />
               </form>
               <p className="block md:hidden font-poppins">
@@ -182,25 +187,43 @@ const Form = () => {
                   type="text"
                   placeholder="Username"
                   value={form.name}
-                  onChange={(e : React.ChangeEvent<HTMLInputElement>) => setForm({ ...form, name: e.target.value })}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setForm({ ...form, name: e.target.value })
+                  }
                 />
                 <Input
                   type="email"
                   placeholder="Email"
                   value={form.email}
-                  onChange={(e : React.ChangeEvent<HTMLInputElement>) => setForm({ ...form, email: e.target.value })}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setForm({ ...form, email: e.target.value })
+                  }
                 />
                 <Input
                   type="password"
                   placeholder="Password"
                   value={form.password}
-                  onChange={(e : React.ChangeEvent<HTMLInputElement>) =>
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     setForm({ ...form, password: e.target.value })
                   }
                 />
-                <Input type="password" placeholder="Confirm Password" onChange={(e: React.ChangeEvent<HTMLInputElement>) => setConfirmPassword(e.target.value)}/>
-                {signupMessage && signupMessage.map((msg,index)=> <p key={index} className="text-red-500 w-full text-left -mb-4">*{msg}</p>) }
-              
+                <Input
+                  type="password"
+                  placeholder="Confirm Password"
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setConfirmPassword(e.target.value)
+                  }
+                />
+                {signupMessage &&
+                  signupMessage.map((msg, index) => (
+                    <p
+                      key={index}
+                      className="text-red-500 w-full text-left -mb-4"
+                    >
+                      *{msg}
+                    </p>
+                  ))}
+
                 <SecondaryButton text="Create account" />
               </form>
               <p className="block md:hidden font-poppins">

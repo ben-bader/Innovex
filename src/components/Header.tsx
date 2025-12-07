@@ -10,7 +10,6 @@ import ProfileMenu from "../UI/ProfileMenu";
 import { IoIosArrowDown } from "react-icons/io";
 import { HiOutlineUserCircle } from "react-icons/hi2";
 
-
 const Header = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const { data: session, status } = useSession();
@@ -20,7 +19,7 @@ const Header = () => {
       initial={{ y: -50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeIn" }}
-      className="flex w-full px-20 py-6 max-sm:px-8 items-center justify-between space-x-4"
+      className="flex w-full px-20 py-6 max-sm:px-6 items-center justify-between space-x-4"
     >
       <div className="flex w-full justify-between items-center">
         <Logo />
@@ -52,13 +51,11 @@ const Header = () => {
                 id="btn"
                 className="cursor-pointer rounded-full py-2 text-sm px-4 text-white/80 hover:text-white bg-white/5 backdrop-blur-3xl border border-white/30 capitalize  flex items-center justify-center "
                 onClick={() => setProfileMenu(!profileMenu)}
-               
-              > 
-              
+              >
                 {session?.user?.name?.split(" ")[0]}
                 <IoIosArrowDown className="ml-1 max-sm:ml-0 " />
               </button>
-              
+
               {profileMenu && <ProfileMenu />}
             </div>
           )}

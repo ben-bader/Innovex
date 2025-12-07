@@ -32,7 +32,6 @@ export default function Events() {
     });
   }, [events, category, country, city]);
 
-
   if (loading || events.length === 0) {
     return (
       <div className="flex items-center justify-center h-96 text-white">
@@ -42,7 +41,7 @@ export default function Events() {
   }
 
   return (
-    <section 
+    <section
       className={`min-h-screen w-full px-20 max-sm:px-10 py-12 relative `}
     >
       <div className="absolute pointer-events-none w-[500px] h-[700px] hero-gradient rounded-tl-[300px] -left-[500px]   top-0 -z-1" />
@@ -60,7 +59,9 @@ export default function Events() {
         Events
       </h1>
       <p className="text-center text-gray-300">
-        Experience the forefront of technology at our upcoming events,  where breakthroughs, bold thinking,<br /> and emerging leaders converge.
+        Experience the forefront of technology at our upcoming events, where
+        breakthroughs, bold thinking,
+        <br /> and emerging leaders converge.
       </p>
       <div className="my-12 max-w-full max-sm:flex-col max-sm:gap-4 flex flex-1 space-x-4">
         <div className="flex  items-center gap-4">
@@ -70,12 +71,24 @@ export default function Events() {
             onChange={(e) => setCategory(e.target.value)}
             className="focus:outline-none"
           >
-            <option value="" className="bg-gray-800">All</option>
-            <option value="AI" className="bg-gray-800">AI</option>
-            <option value="Cloud" className="bg-gray-800">Cloud</option>
-            <option value="Cybersecurity" className="bg-gray-800">Cybersecurity</option>
-            <option value="Development" className="bg-gray-800">Development</option>
-            <option value="Data Science" className="bg-gray-800">Data Science</option>
+            <option value="" className="bg-gray-800">
+              All
+            </option>
+            <option value="AI" className="bg-gray-800">
+              AI
+            </option>
+            <option value="Cloud" className="bg-gray-800">
+              Cloud
+            </option>
+            <option value="Cybersecurity" className="bg-gray-800">
+              Cybersecurity
+            </option>
+            <option value="Development" className="bg-gray-800">
+              Development
+            </option>
+            <option value="Data Science" className="bg-gray-800">
+              Data Science
+            </option>
           </select>
         </div>
         <div className="flex items-center gap-4 max-sm:gap-2">
@@ -85,13 +98,27 @@ export default function Events() {
             onChange={(e) => setCountry(e.target.value)}
             className="focus:outline-none"
           >
-            <option value="" className="bg-gray-800">All</option>
-            <option value="UK" className="bg-gray-800">UK</option>
-            <option value="France" className="bg-gray-800">France</option>
-            <option value="USA" className="bg-gray-800">USA</option>
-            <option value="Spain" className="bg-gray-800">Spain</option>
-            <option value="Australia" className="bg-gray-800">Australia</option>
-            <option value="Austria" className="bg-gray-800">Austria</option>
+            <option value="" className="bg-gray-800">
+              All
+            </option>
+            <option value="UK" className="bg-gray-800">
+              UK
+            </option>
+            <option value="France" className="bg-gray-800">
+              France
+            </option>
+            <option value="USA" className="bg-gray-800">
+              USA
+            </option>
+            <option value="Spain" className="bg-gray-800">
+              Spain
+            </option>
+            <option value="Australia" className="bg-gray-800">
+              Australia
+            </option>
+            <option value="Austria" className="bg-gray-800">
+              Austria
+            </option>
           </select>
         </div>
         <div className="flex items-center gap-4">
@@ -101,11 +128,21 @@ export default function Events() {
             onChange={(e) => setCity(e.target.value)}
             className="focus:outline-none "
           >
-            <option value="" className="bg-gray-800">All</option>
-            <option value="London" className="bg-gray-800">London</option>
-            <option value="Paris" className="bg-gray-800">Paris</option>
-            <option value="New York" className="bg-gray-800">New York</option>
-            <option value="Madrid" className="bg-gray-800">Madrid</option>
+            <option value="" className="bg-gray-800">
+              All
+            </option>
+            <option value="London" className="bg-gray-800">
+              London
+            </option>
+            <option value="Paris" className="bg-gray-800">
+              Paris
+            </option>
+            <option value="New York" className="bg-gray-800">
+              New York
+            </option>
+            <option value="Madrid" className="bg-gray-800">
+              Madrid
+            </option>
           </select>
         </div>
       </div>

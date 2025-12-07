@@ -26,7 +26,7 @@ const Contact = () => {
     userId: "",
   });
   const [loading, setLoading] = useState(false);
-  const [message,setMessage] = useState({message: "" ,color :""});
+  const [message, setMessage] = useState({ message: "", color: "" });
   // Set userId when session loads
   useEffect(() => {
     if (session?.user?.id) {
@@ -38,7 +38,10 @@ const Contact = () => {
     e.preventDefault();
 
     if (!form.userId) {
-      setMessage({message : "You must be logged in to send a message!!",color :"red"});
+      setMessage({
+        message: "You must be logged in to send a message!!",
+        color: "red",
+      });
       return;
     }
 
@@ -56,7 +59,10 @@ const Contact = () => {
       if (!res.ok) {
         alert(data.error || "Something went wrong");
       } else {
-        setMessage({message :"Message sent successfully, wait soon for our reply !! ",color :"green"});
+        setMessage({
+          message: "Message sent successfully, wait soon for our reply !! ",
+          color: "green",
+        });
         setForm({
           name: "",
           email: "",
@@ -95,11 +101,14 @@ const Contact = () => {
           <h1 className="text-4xl font-semibold">Let&apos;s Get In Touch.</h1>
           <p>
             Or just reach out manually to{" "}
-            <a href="mailto:hello@innovex.com" className="text-blue-500 underline">
+            <a
+              href="mailto:hello@innovex.com"
+              className="text-blue-500 underline"
+            >
               hello@innovex.com
             </a>
           </p>
-          <p style={{color : message.color}}>{message.message}</p>
+          <p style={{ color: message.color }}>{message.message}</p>
         </div>
 
         <div className="flex w-full">
@@ -142,7 +151,6 @@ const Contact = () => {
               inputClass="!w-full !rounded-md !py-5 !backdrop-blur-3xl !bg-gray-900/50 !border !border-white/20"
               dropdownClass="!text-black !rounded-md"
               buttonClass="!bg-gray-800/50 !border-white/20 !rounded-l-md"
-              
             />
 
             {/* Message */}
@@ -173,13 +181,16 @@ const Contact = () => {
               </div>
               <p className="my-2">
                 I hereby agree to our{" "}
-                <a href="/main/Policy/Privacy" className="text-blue-500 underline">
+                <a
+                  href="/main/Policy/Privacy"
+                  className="text-blue-500 underline"
+                >
                   Privacy Policy
                 </a>{" "}
                 terms.
               </p>
             </label>
-            
+
             <SecondaryButton text={loading ? "Sending..." : "Send Message"} />
           </form>
         </div>
