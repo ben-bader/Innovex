@@ -13,15 +13,15 @@
 ---
 
 ## 🚀 Features
-
 - 🔐 **JWT Authentication**: Secure authentication using NextAuth.js with JWT strategy  
 - 👤 **User Accounts**: Sign up, sign in, and manage favorites  
 - 🌐 **Event Discovery**: Browse and explore tech events effortlessly  
 - ❤️ **Favorites System**: Save and manage favorite events  
 - 🎨 **Smooth Animations**: Polished UI interactions powered by Framer Motion  
 - 📱 **Responsive Design**: Fully responsive layout using Tailwind CSS  
-- 🗄️ **Database Management**: Prisma ORM with PostgreSQL  
-- ⚡ **High Performance**: Server-side rendering with Next.js  
+- 🗄️ **Database Management**: Prisma ORM with PostgreSQL or Neon  
+- ⚡ **High Performance**: Server-side rendering with Next.js deployed on Vercel  
+- 🌎 **OAuth Providers**: Supports Google and GitHub login  
 - 🧹 **Code Quality**: ESLint configured for consistent and clean code  
 
 ---
@@ -30,12 +30,13 @@
 
 - **Framework**: Next.js (App Router)
 - **Styling**: Tailwind CSS
-- **Authentication**: NextAuth.js (JWT-based sessions)
-- **Database**: PostgreSQL
+- **Authentication**: NextAuth.js (JWT-based sessions + OAuth providers)
+- **Database**: PostgreSQL or Neon
 - **ORM**: Prisma
 - **Animations**: Framer Motion
 - **Linting**: ESLint
 - **Version Control**: Git & GitHub
+- **Deployment**: Vercel 
 
 ---
 
@@ -59,6 +60,11 @@ Create a .env file in the root directory:
     DATABASE_URL="postgresql://USER:PASSWORD@HOST:PORT/DATABASE"
     NEXTAUTH_URL="http://localhost:3000"
     NEXTAUTH_SECRET="your-secret-key"
+    GOOGLE_CLIENT_ID="your-google-client-id"
+    GOOGLE_CLIENT_SECRET="your-google-client-secret"
+    GITHUB_ID="your-github-client-id"
+    GITHUB_SECRET="your-github-client-secret"
+
 
 
 4. **Run Prisma migrations**
@@ -131,9 +137,14 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 - **Next.js** – [Official Documentation](https://nextjs.org/docs)  
 - **NextAuth.js** – [Authentication Guide](https://next-auth.js.org/getting-started/introduction)  
-- **JWT** – [Introduction to JSON Web Tokens](https://jwt.io/introduction)
-- **Prisma** – [ORM Documentation](https://www.prisma.io/docs/)  
-- **Tailwind CSS** – [Styling Guide](https://tailwindcss.com/docs)  
-- **Framer Motion** – [Animation Docs](https://www.framer.com/docs/)
-- **ESLint** – [Configuration Guide](https://eslint.org/docs/user-guide/configuring/)
+- **Google OAuth** – [Google Identity Platform](https://developers.google.com/identity)  
+- **GitHub OAuth** – [GitHub Developer Apps](https://docs.github.com/en/developers/apps/building-oauth-apps)  
+- **JWT (JSON Web Tokens)** – [JWT Introduction](https://jwt.io/introduction)  
+- **Prisma ORM** – [Prisma Documentation](https://www.prisma.io/docs/)  
+- **PostgreSQL** – [Official PostgreSQL Docs](https://www.postgresql.org/docs/)  
+- **Neon (Serverless Postgres)** – [Neon Docs](https://neon.tech/docs/)  
+- **Tailwind CSS** – [Tailwind CSS Documentation](https://tailwindcss.com/docs)  
+- **Framer Motion** – [Framer Motion Docs](https://www.framer.com/docs/)  
+- **ESLint** – [ESLint Configuration Guide](https://eslint.org/docs/user-guide/configuring/)  
+- **Vercel** – [Deployment Guide](https://vercel.com/docs)  
 
