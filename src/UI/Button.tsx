@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useSession } from "next-auth/react";
 
 
@@ -12,8 +11,8 @@ const Button  = ({href,text,className}:{href ?: string,text ?: string ,className
       target="_blank"
       className={`
         relative overflow-hidden rounded-full px-6 py-[6px] text-lg
-        bg-gray-900 border border-white/20 flex items-center text-gray-100
-        transition-all duration-300 hover:border-blue-300 hover:text-blue-300 cursor-pointer
+        bg-black/60 backdrop-blur-3xl border border-white/30 flex items-center text-gray-100
+        transition-all duration-300 hover:border-blue-400 hover:text-blue-400 cursor-pointer
         ${className}
       `}
     >

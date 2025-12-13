@@ -1,4 +1,4 @@
-const Loader = () => {
+const Loader: React.FC = () => {
   return (
     <div className="fixed flex items-center justify-center inset-0 bg-gray-950 z-50">
       <svg

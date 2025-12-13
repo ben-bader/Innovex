@@ -22,12 +22,16 @@ export function useEvents() {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const res = await fetch("/data/events.json", { cache: "no-store" });
-        if (!res.ok) throw new Error("Failed to fetch events");
+        const res = await fetch("/api/events", { cache: "no-store" });
+        if (!res.ok) return [];
 
         const data = await res.json();
+         const formattedEvents = data.map((e: Event) => ({
+          ...e,
+          date: new Date(e.date).toISOString().split("T")[0], // "YYYY-MM-DD"
+        }));
+        setEvents(formattedEvents || []);
 
-        setEvents(data.events || []);
       } catch (error) {
         console.error("Error loading events:", error);
         setEvents([]);

@@ -1,8 +1,6 @@
 "use client";
-import { motion } from "framer-motion";
-import Image from "next/image";
 
-const Logo = () => {
+const Logo : React.FC = () => {
   return (
     <a href="/main">
       <div className="flex items-center justify-center space-x-2">

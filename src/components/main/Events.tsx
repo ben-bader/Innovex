@@ -1,10 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Button from "@/src/UI/Button";
-import SecondaryButton from "@/src/UI/SecondaryButton";
-import { ArrowRight } from "lucide-react";
+
 import { useEvents } from "../../hooks/useEvents";
 import Loader from "@/src/UI/Loader";
 import { useSession } from "next-auth/react";

@@ -127,9 +127,9 @@ export default function CookiesPolicyPage() {
               If you have questions about this Cookies Policy, contact{" "}
               <a
                 className="text-blue-400 underline"
-                href="mailto:hello@innovex.com"
+                href="mailto:innovexexplorer@gmail.com"
               >
-                hello@innovex.com
+                 innovexexplorer@gmail.com
               </a>
               .
             </p>

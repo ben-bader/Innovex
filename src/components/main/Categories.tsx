@@ -63,7 +63,7 @@ export default function Categories() {
       <div className="flex flex-col gap-16 items-center justify-center">
         <h1 className="text-6xl max-sm:text-4xl text-center">
           Choose the{" "}
-          <span className="font-squid text-transparent bg-clip-text  bg-gradient-to-tr from-blue-700 to-purple-400">
+          <span className="font-squid text-transparent bg-clip-text  bg-linear-to-tr from-blue-700 to-purple-400">
             category
           </span>{" "}
           you want to explore

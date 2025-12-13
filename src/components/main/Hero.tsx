@@ -15,15 +15,16 @@ export default function Home() {
     return <Loader />;
   }
   return (
-    <section
+    <motion.section
+     initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2, ease: "easeIn" }}
       id="hero"
       className="flex max-sm:flex-col items-center justify-between max-sm:justify-center px-20 pt-50 pb-20 max-sm:px-6 text-center"
     >
       <div className="absolute pointer-events-none w-[500px] h-[700px] hero-gradient rounded-tl-[300px] -left-[500px] top-0 -z-1" />
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, ease: "easeInOut" }}
+      <div
+       
         className="text-start flex w-full flex-col justify-center -mt-36"
       >
         <span className="text-sm text-center w-30 py-1 bg-pink-500 rounded-full mb-2">
@@ -61,16 +62,14 @@ export default function Home() {
             Learn More
           </button>
         </div>
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, ease: "easeIn" }}
+      </div>
+      <div
+       
         className="flex items-center justify-center gap-6 max-sm:mt-12 -mt-56"
       >
         <div className="absolute pointer-events-none w-[300px] h-[300px] div-gradient-01 rounded-full -z-1" />
         <EventCountdown targetDate={new Date(events[0].date)} />
-      </motion.div>
-    </section>
+      </div>
+    </motion.section>
   );
 }

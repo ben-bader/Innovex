@@ -1,19 +1,16 @@
 "use client";
-import Button from "@/src/UI/Button";
 import Input from "@/src/UI/Input";
 import SecondaryButton from "@/src/UI/SecondaryButton";
-import { LogOut } from "lucide-react";
 
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { ReactFormState } from "react-dom/client";
 
 export default function ChangeInfos() {
   const { data: session, status, update } = useSession();
   const router = useRouter();
-  const [Infosmessage, setInfosMessage] = useState("");
-  const [passMessage, setPassMessage] = useState("");
+  const [Infosmessage, setInfosMessage] = useState({ msg: "", color: "" });
+  const [passMessage, setPassMessage] = useState({ msg: "", color: "" });
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -25,11 +22,12 @@ export default function ChangeInfos() {
       body: JSON.stringify({ userId: session?.user?.id, name, email }),
     });
     if (!res?.ok) {
-      setInfosMessage("Failed to update user info");
+      setInfosMessage({ msg: "Failed to update user info", color: "#f00" });
       return;
     }
     const data = await res.json();
     update?.();
+    setInfosMessage({ msg: "Informations changes succesfuly", color: "#0f0" });
   }
 
   const [newPassword, SetNewPassword] = useState("");
@@ -38,7 +36,7 @@ export default function ChangeInfos() {
   async function updatePass(e: React.FormEvent) {
     e.preventDefault();
     if (newPassword !== confirmPassword) {
-      setPassMessage("Passwords do not match");
+      setPassMessage({ msg: "Passwords do not match", color: "#f00" });
       return;
     }
     const res = await fetch("/api/user/update-password", {
@@ -47,21 +45,38 @@ export default function ChangeInfos() {
       body: JSON.stringify({ userId: session?.user?.id, newPassword }),
     });
     if (!res?.ok) {
-      setPassMessage("Failed to update password");
+      setPassMessage({ msg: "Failed to update password", color: "#f00" });
       return;
     }
     const data = await res.json();
 
     console.log(data);
     update?.();
+    setPassMessage({ msg: "Password changed succesfuly", color: "#0f0" });
   }
+  async function deleteAccount() {
+    const confirmed = confirm(
+      "This action is irreversible. Delete your account?"
+    );
+
+    if (!confirmed) return;
+
+    const res = await fetch("/api/account", {
+      method: "DELETE",
+    });
+
+    if (res.ok) {
+      await signOut({ callbackUrl: "/" });
+    }
+  }
+
   if (status === "unauthenticated") {
     router.push("/main");
     return;
   }
 
   return (
-    <div className="px-20 py-16 max-sm:px-6 flex flex-col gap-16">
+    <div className="px-6 flex flex-col gap-16">
       <h1 className="-mb-12">Change Informations </h1>
       <div className="p-4 bg-gray-900/50 border rounded-md border-white/30 w-[60%] max-md:w-full">
         <form onSubmit={updateInfos} className=" flex flex-col gap-6">
@@ -83,10 +98,9 @@ export default function ChangeInfos() {
               className="!focus:scale-100"
             />
           </label>
-          {
-          Infosmessage && 
-          <p className="text-red-500">*{Infosmessage}</p>
-          }
+          {Infosmessage.msg && (
+            <p style={{ color: Infosmessage.color }}>*{Infosmessage.msg}</p>
+          )}
           <div className="flex justify-end">
             <button className="w-full text-center py-2 bg-gray-300 text-black rounded-md text-lg cursor-pointer focus:scale-[0.98] duration-300 transition-all">
               Confirm
@@ -115,11 +129,26 @@ export default function ChangeInfos() {
               className="!focus:scale-100"
             />
           </label>
-          {passMessage && <p className="text-red-500">*{passMessage}</p>}
+          {passMessage.msg && <p style={{color:passMessage.color}}>*{passMessage.msg}</p>}
           <div className="flex justify-end">
             <SecondaryButton text="Change Password" />
           </div>
         </form>
+      </div>
+      <h1 className="-mb-12">Delete Account</h1>
+      <div className="p-4 bg-gray-900/50 border rounded-md border-white/30 w-[60%] max-md:w-full">
+        <p className="mb-4 text-gray-200">
+          Deleting your account is <strong>permanent</strong> and cannot be
+          undone. All your data, including your events, favorites, and profile
+          information, will be permanently removed from our system.
+        </p>
+
+        <button
+          onClick={deleteAccount}
+          className="bg-red-500 cursor-pointer text-white px-4 py-2 rounded hover:bg-red-700 transition-all"
+        >
+          Delete Account
+        </button>
       </div>
     </div>
   );

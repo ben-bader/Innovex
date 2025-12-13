@@ -1,46 +1,51 @@
 # Innovex Tech Event Explorer
 
-
-[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/) 
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/) 
-[![Prisma](https://img.shields.io/badge/Prisma-0CAADC?style=for-the-badge&logo=prisma&logoColor=white)](https://www.prisma.io/) 
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/) 
-[![NextAuth](https://img.shields.io/badge/NextAuth.js-111111?style=for-the-badge&logo=nextauth.js&logoColor=white)](https://next-auth.js.org/) 
+[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Prisma](https://img.shields.io/badge/Prisma-0CAADC?style=for-the-badge&logo=prisma&logoColor=white)](https://www.prisma.io/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![NextAuth](https://img.shields.io/badge/NextAuth.js-111111?style=for-the-badge&logo=nextauth.js&logoColor=white)](https://next-auth.js.org/)
 [![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)](https://www.framer.com/motion/)
+[![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white)](https://eslint.org/)
 
-**Innovex Tech Event Explorer** is a modern, dynamic web app that allows users to discover and explore tech events worldwide with a seamless and interactive user experience.
+**Innovex Tech Event Explorer** is a modern, full-stack web application that allows users to discover, explore, and manage tech events worldwide, offering a secure and highly interactive user experience.
 
 ---
 
 ## 🚀 Features
 
-- 🔒 **Secure Authentication**: Powered by NextAuth.js  
-- 🌐 **Event Discovery**: Browse and filter tech events effortlessly  
-- 🎨 **Smooth Animations**: Engaging UI with Framer Motion  
-- 📱 **Responsive Design**: Optimized for all devices using Tailwind CSS  
+- 🔐 **JWT Authentication**: Secure authentication using NextAuth.js with JWT strategy  
+- 👤 **User Accounts**: Sign up, sign in, and manage favorites  
+- 🌐 **Event Discovery**: Browse and explore tech events effortlessly  
+- ❤️ **Favorites System**: Save and manage favorite events  
+- 🎨 **Smooth Animations**: Polished UI interactions powered by Framer Motion  
+- 📱 **Responsive Design**: Fully responsive layout using Tailwind CSS  
 - 🗄️ **Database Management**: Prisma ORM with PostgreSQL  
 - ⚡ **High Performance**: Server-side rendering with Next.js  
+- 🧹 **Code Quality**: ESLint configured for consistent and clean code  
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Frontend & Framework**: Next.js 13  
-- **Styling**: Tailwind CSS  
-- **Authentication**: NextAuth.js  
-- **Database**: PostgreSQL  
-- **ORM**: Prisma  
-- **Animations**: Framer Motion  
-- **Version Control**: Git & GitHub  
+- **Framework**: Next.js (App Router)
+- **Styling**: Tailwind CSS
+- **Authentication**: NextAuth.js (JWT-based sessions)
+- **Database**: PostgreSQL
+- **ORM**: Prisma
+- **Animations**: Framer Motion
+- **Linting**: ESLint
+- **Version Control**: Git & GitHub
 
 ---
 
 ## 💻 Installation
 
 1. **Clone the repository**
-   ```bash
-   git clone https://github.com/ben-bader/innovex.git
-   cd innovex
+    ```bash
+    git clone https://github.com/ben-bader/innovex.git
+    cd innovex
+
 2. **Install dependencies**
     ```bash
     npm install
@@ -61,8 +66,14 @@ Create a .env file in the root directory:
     ```bash
     npx prisma migrate dev
 
+5. **Check code quality with ESLint**
+    ```bash
+    # Check for linting issues
+    npm run lint
 
-5. **Start the development server**
+    # Auto-fix linting issues (if available)
+    npm run lint:fix
+6. **Start the development server**
 
     ```bash
     npm run dev
@@ -89,6 +100,8 @@ Open http://localhost:3000
 3. Click on an event to view details and buy ticket.
 
 4. Enjoy smooth animations and interactive UI elements.
+
+5. Secure API calls with JWT tokens for protected endpoints.
 
 --- 
 
@@ -118,6 +131,9 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 - **Next.js** – [Official Documentation](https://nextjs.org/docs)  
 - **NextAuth.js** – [Authentication Guide](https://next-auth.js.org/getting-started/introduction)  
+- **JWT** – [Introduction to JSON Web Tokens](https://jwt.io/introduction)
 - **Prisma** – [ORM Documentation](https://www.prisma.io/docs/)  
 - **Tailwind CSS** – [Styling Guide](https://tailwindcss.com/docs)  
 - **Framer Motion** – [Animation Docs](https://www.framer.com/docs/)
+- **ESLint** – [Configuration Guide](https://eslint.org/docs/user-guide/configuring/)
+

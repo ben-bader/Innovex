@@ -69,7 +69,7 @@ export default function Events() {
           <select
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="focus:outline-none"
+            className="focus:outline-none cursor-pointer"
           >
             <option value="" className="bg-gray-800">
               All
@@ -96,7 +96,7 @@ export default function Events() {
           <select
             value={country}
             onChange={(e) => setCountry(e.target.value)}
-            className="focus:outline-none"
+            className="focus:outline-none cursor-pointer"
           >
             <option value="" className="bg-gray-800">
               All
@@ -126,7 +126,7 @@ export default function Events() {
           <select
             value={city}
             onChange={(e) => setCity(e.target.value)}
-            className="focus:outline-none "
+            className="focus:outline-none cursor-pointer"
           >
             <option value="" className="bg-gray-800">
               All

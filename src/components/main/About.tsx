@@ -11,7 +11,7 @@ const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 export default function About() {
   const options = {
-    chart: { id: "events-chart", toolbar: { show: true }, zoom: { enabled: false } },
+    chart: { id: "events-chart", toolbar: { show: false }, zoom: { enabled: false } },
 
     xaxis: {
       categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "jul"],
@@ -87,7 +87,7 @@ export default function About() {
           className="col-span-5 row-span-1 overflow-hidden flex flex-col gap-2 bg-white/5 rounded-2xl h-80 lg:px-6 px-4 lg:pt-6 pt-4 border border-white/30 backdrop-blur-3xl"
         >
           <div className="flex items-center space-x-4 ">
-            <Activity className="w-10 h-10 p-2 bg-gray-900 rounded-md" />
+            <Activity className="w-10 h-10 p-2 bg-black rounded-md" />
             <h1 className="text-lg">Events anlytics</h1>
           </div>
           <h1 className="lg:text-2xl text-xl font-bold">
@@ -120,7 +120,7 @@ export default function About() {
           className="flex flex-col justify-between max-sm:justify-start gap-2 col-span-3 row-span-1 rounded-2xl h-80 backdrop-blur-3xl bg-white/5 border border-white/30 lg:p-6 p-4"
         >
           <div className="flex items-center space-x-4">
-            <Radio className="w-10 h-10 p-2 bg-gray-900 rounded-md" />
+            <Radio className="w-10 h-10 p-2 bg-black rounded-md" />
             <h1 className="text-lg">Live events</h1>
           </div>
           <h1 className="text-2xl font-bold lg:-mt-8">
@@ -153,7 +153,7 @@ export default function About() {
           className="flex flex-col gap-4 col-span-4 row-span-1 bg-white/5 h-80 backdrop-blur-3xl rounded-2xl border border-white/30 lg:p-6 p-4"
         >
           <div className="flex items-center space-x-4">
-            <Bell className="w-10 h-10 p-2 bg-gray-900 rounded-md" />
+            <Bell className="w-10 h-10 p-2 bg-black rounded-md" />
             <h1 className="text-lg">Smart reminders</h1>
           </div>
           <h1 className="text-2xl font-bold -my-2">Upcomming events</h1>
@@ -191,7 +191,7 @@ export default function About() {
           className="flex flex-col gap-4 col-span-4 row-span-1 h-80 bg-white/5 backdrop-blur-3xl rounded-2xl border border-white/30  lg:p-6 p-4 overflow-hidden"
         >
           <div className="flex items-center space-x-4">
-            <Users className="w-10 h-10 p-2 bg-gray-900 rounded-md" />
+            <Users className="w-10 h-10 p-2 bg-black rounded-md" />
             <h1 className="text-lg">Community</h1>
           </div>
           <h1 className="lg:text-2xl text-lg font-bold">

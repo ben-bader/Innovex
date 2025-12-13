@@ -8,7 +8,7 @@ import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { people } from "@/public/data/export";
 
-const EventPage = () => {
+const EventPage:  React.FC = () => {
   const { events, loading } = useEvents();
   const { id } = useParams();
   const event: Event | undefined = events.find(

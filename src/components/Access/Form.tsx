@@ -11,8 +11,7 @@ import {
 } from "react-icons/ri";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { p } from "motion/react-client";
-import { set } from "mongoose";
+import Image from "next/image";
 
 const Form = () => {
   const [toggle, setToggle] = useState(false);
@@ -33,10 +32,17 @@ const Form = () => {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
+
     if (form.password !== confirmPassword) {
-      const signupMessage = [];
-      signupMessage.push("Passwords do not match");
-      setSignupMessage(signupMessage);
+      setSignupMessage((prev) => [...prev, "Passwords do not match"]);
+      setLoading(false);
+      return;
+    }
+    if (form.password.length < 6) {
+      setSignupMessage((prev) => [
+        ...prev,
+        "Password must be longer than 6 caracters.",
+      ]);
       setLoading(false);
       return;
     }
@@ -54,11 +60,18 @@ const Form = () => {
         email: form.email,
         password: form.password,
         redirect: false,
-      });
+      }); 
 
       if (!signInRes?.error) router.push("/main/events");
-      else alert("Signup succeeded but auto-login failed.");
-    } else alert(data.error || "Signup failed");
+      else {
+        setSignupMessage((prev) => [
+          ...prev,
+          "Signup succeeded but auto-login failed.",
+        ]);
+      }
+    } else {
+      setSignupMessage((prev) => [...prev, data.error || "Signup failed"]);
+    }
 
     setLoading(false);
   }
@@ -70,8 +83,6 @@ const Form = () => {
       password,
       redirect: false,
     });
-    console.log("LOGIN RES:", res);
-
     if (res?.error) setLoginMessage("Invalid credentials");
     if (res?.ok) router.push("/main/events");
     setLoading(false);
@@ -80,8 +91,8 @@ const Form = () => {
   return (
     <>
       <div className="h-screen flex items-center px-20 max-sm:px-5">
-        <div className="absolute top-[0%] left-[0%] bg-gradient-to-tr from-fuchsia-500 to-blue-600 blur-[90px] rounded-full w-[30rem] max-sm:w-[20rem] h-[20rem] -z-10" />
-        <div className="absolute bottom-0 right-24 bg-gradient-to-l from-teal-400 to-blue-500 blur-[90px] rounded-full w-[20rem] h-[20rem] max-sm:h-[10rem] -z-10" />
+        <div className="absolute top-[0%] left-[0%] bg-gradient-to-tr from-fuchsia-600 to-blue-600 blur-[90px] rounded-full w-[30rem] max-sm:w-[20rem] h-[20rem] -z-10" />
+        <div className="absolute bottom-0 right-24 bg-gradient-to-l from-teal-600 to-blue-600 blur-[90px] rounded-full w-[20rem] h-[20rem] max-sm:h-[10rem] -z-10" />
         <div className="flex flex-1  justify-center items-center border border-white/20 backdrop-blur-3xl  rounded-3xl relative md:px-8 md:py-12 px-2 py-10 w-full">
           <div className="flex w-full gap-16 ">
             <div
@@ -93,21 +104,16 @@ const Form = () => {
               <h1 className="text-4xl font-bold">Log In</h1>
               <div className="flex justify-center gap-4">
                 <RiGithubLine
-                  size={40}
-                  className="border rounded-md border-white/50  p-2 text-gray-300 cursor-pointer"
-                />
-                <RiFacebookLine
+                onClick={() => {signIn("github",{ callbackUrl: "/main/events" }) ;}}
                   size={40}
                   className="border rounded-md border-white/50  p-2 text-gray-300 cursor-pointer"
                 />
                 <RiGoogleFill
+                onClick={() => {signIn("google",{ callbackUrl: "/main/events" })}}
                   size={40}
                   className="border rounded-md border-white/50  p-2 text-gray-300 cursor-pointer"
                 />
-                <RiKickLine
-                  size={40}
-                  className="border rounded-md border-white/50  p-2 text-gray-300 cursor-pointer"
-                />
+                
               </div>
 
               <form
@@ -115,7 +121,7 @@ const Form = () => {
                 className="flex flex-col gap-5 w-full justify-center items-center px-5"
               >
                 <p className="font-poppins text-gray-300">
-                  or use you&apos;re Email password
+                  or use you&apos;re email password
                 </p>
                 <Input
                   type="email"
@@ -139,7 +145,7 @@ const Form = () => {
                   </p>
                 )}
 
-                <SecondaryButton text="Log In" />
+                <SecondaryButton text={loading ? "Loging..." : "Log in"} />
               </form>
               <p className="block md:hidden font-poppins">
                 Don&apos;t have an acount{" "}
@@ -162,21 +168,17 @@ const Form = () => {
 
               <div className="flex justify-center gap-4">
                 <RiGithubLine
+                onClick={() => {signIn("github",{ callbackUrl: "/main/events" })}}
                   size={40}
                   className="border rounded-md border-white/50 text-gray-300 p-2 cursor-pointer"
                 />
-                <RiFacebookLine
-                  size={40}
-                  className="border rounded-md border-white/50 text-gray-300 p-2 cursor-pointer"
-                />
+
                 <RiGoogleFill
+                onClick={() => {signIn("google",{ callbackUrl: "/main/events" });}}
                   size={40}
                   className="border rounded-md border-white/50 text-gray-300 p-2 cursor-pointer"
                 />
-                <RiKickLine
-                  size={40}
-                  className="border rounded-md border-white/50 text-gray-300 p-2 cursor-pointer"
-                />
+               
               </div>
 
               <form
@@ -215,7 +217,7 @@ const Form = () => {
                   }
                 />
                 {signupMessage &&
-                  signupMessage.map((msg, index) => (
+                  [...new Set(signupMessage)].map((msg, index) => (
                     <p
                       key={index}
                       className="text-red-500 w-full text-left -mb-4"
@@ -224,7 +226,10 @@ const Form = () => {
                     </p>
                   ))}
 
-                <SecondaryButton text="Create account" />
+                <SecondaryButton
+                  text={loading ? "Creating account..." : "Create account"}
+                  className="rounded-full"
+                />
               </form>
               <p className="block md:hidden font-poppins">
                 Already have an acount{" "}
@@ -238,7 +243,7 @@ const Form = () => {
             </div>
           </div>
           <div
-            className="gap-4 flex-col lg:flex hidden items-center text-center text-white bg-gradient-to-tr from-blue-700 to-purple-400 px-3 py-36 z-50 absolute w-[50%] top-0  right-0 h-full duration-1000"
+            className="gap-4 flex-col lg:flex hidden items-center justify-center text-center text-white bg-gradient-to-tr from-purple-900 to-blue-900 px-3 py-36 z-50 absolute w-[50%] top-0  right-0 h-full duration-1000"
             style={{
               transform: toggle ? "translateX(-100%)" : "",
               borderRadius: toggle
@@ -246,23 +251,26 @@ const Form = () => {
                 : "  200px  1.5rem 1.5rem 150px",
             }}
           >
-            <h1 className="text-4xl font-boldonse gap-4 font-semibold tracking-[1px]">
+            <div>
+              <Image src="/Images/logo.png" alt="logo" width={50} height={50} className=""/>
+            </div>
+            <h1 className="text-4xl font-boldonse text-gray-200 gap-4 font-semibold tracking-[1px]">
               {toggle ? "Hello Friend" : "Welcome Back"}
             </h1>
-            <p className="font-poppins opacity-50">
+            <p className="font-poppins opacity-80">
               {toggle
                 ? "Register Now And have The most Unique and Futuristic Experience In the web"
                 : "Log In And Continue you're journy to the Most Epic adventure in the Web"}
             </p>
             <span className="-my-3">Or</span>
-            <p className="font-poppins opacity-50">
+            <p className="font-poppins opacity-80">
               {toggle
                 ? "If you already have an account"
                 : "If you don't have an account"}
             </p>
             <button
               onClick={() => setToggle(!toggle)}
-              className="px-8 py-2 text-lg rounded-lg cursor-pointer bg-blue-500 active:scale-95"
+              className="px-8 py-2 text-lg rounded-full border text-gray-100 hover:text-white border-white/30 cursor-pointer bg-blue-500 active:scale-95 transition-all"
             >
               {toggle ? "Log In" : "Sign Up"}
             </button>

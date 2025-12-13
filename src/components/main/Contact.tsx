@@ -2,7 +2,7 @@
 
 import SecondaryButton from "@/src/UI/SecondaryButton";
 import { Mail, UserRound } from "lucide-react";
-import { color, motion } from "motion/react";
+import { motion } from "motion/react";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import PhoneInput from "react-phone-input-2";
@@ -40,7 +40,7 @@ const Contact = () => {
     if (!form.userId) {
       setMessage({
         message: "You must be logged in to send a message!!",
-        color: "red",
+        color: "#f00",
       });
       return;
     }
@@ -57,11 +57,14 @@ const Contact = () => {
       const data = await res.json();
 
       if (!res.ok) {
-        alert(data.error || "Something went wrong");
+        setMessage({
+          message:data.error || "Something went wrong",
+          color:"#f00"
+        })
       } else {
         setMessage({
           message: "Message sent successfully, wait soon for our reply !! ",
-          color: "green",
+          color: "#0f0",
         });
         setForm({
           name: "",
@@ -95,17 +98,23 @@ const Contact = () => {
           Contact
         </motion.span>
       </div>
-
+      <h1 className="lg:text-5xl text-4xl">
+          You can{" "}
+          <span className="font-squid bg-clip-text text-transparent bg-gradient-to-tr from-blue-700 to-purple-400">
+            contact
+          </span>{" "}
+          us
+        </h1>
       <div className="flex max-sm:flex-col gap-32 max-sm:gap-16 w-full justify-center">
         <div className="flex flex-col w-full gap-6">
           <h1 className="text-4xl font-semibold">Let&apos;s Get In Touch.</h1>
           <p>
             Or just reach out manually to{" "}
             <a
-              href="mailto:hello@innovex.com"
+               href="mailto:innovexexplorer@gmail.com"
               className="text-blue-500 underline"
             >
-              hello@innovex.com
+             innovexexplorer@gmail.com
             </a>
           </p>
           <p style={{ color: message.color }}>{message.message}</p>

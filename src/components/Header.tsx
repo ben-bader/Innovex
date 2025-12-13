@@ -8,7 +8,6 @@ import { navItems } from "../../public/data/export";
 import { useSession } from "next-auth/react";
 import ProfileMenu from "../UI/ProfileMenu";
 import { IoIosArrowDown } from "react-icons/io";
-import { HiOutlineUserCircle } from "react-icons/hi2";
 
 const Header = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
