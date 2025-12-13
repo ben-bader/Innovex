@@ -16,7 +16,7 @@ const Profile = () => {
             "bg-white/5 backdrop-blur-3xl  rounded-full border border-white/50"
           }`}
         >
-          Change infos
+          Edit profile
         </button>
         <button
           onClick={() => setToggle(false)}
