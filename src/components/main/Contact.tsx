@@ -98,7 +98,7 @@ const Contact = () => {
           Contact
         </motion.span>
       </div>
-      <h1 className="lg:text-5xl text-4xl">
+      <h1 className="lg:text-5xl text-4xl text-center">
           You can{" "}
           <span className="font-squid bg-clip-text text-transparent bg-gradient-to-tr from-blue-700 to-purple-400">
             contact
