@@ -116,9 +116,7 @@ const Form = () => {
                 onSubmit={handleLogin}
                 className="flex flex-col gap-3 w-full justify-center items-center px-5"
               >
-                {/* <p className="font-poppins text-gray-300">
-                  or use you&apos;re email password
-                </p> */}
+              
                 <label htmlFor="" className="w-full">
                   Email
                 <Input
