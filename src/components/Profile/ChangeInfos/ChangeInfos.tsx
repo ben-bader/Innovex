@@ -76,7 +76,7 @@ export default function ChangeInfos() {
   }
 
   return (
-    <div className="px-6 flex flex-col gap-16">
+    <div className="flex flex-col gap-16">
       <h1 className="-mb-12">Change Informations </h1>
       <div className="p-4 bg-gray-900/50 border rounded-md border-white/30 w-[60%] max-md:w-full">
         <form onSubmit={updateInfos} className=" flex flex-col gap-6">
