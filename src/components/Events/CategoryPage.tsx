@@ -21,7 +21,7 @@ const CategoryPage:  React.FC = () => {
     );
   }
   return (
-    <div className="px-20 max-sm:px-10 py-16 flex flex-col gap-16">
+    <div className="px-20 max-sm:px-6 py-16 flex flex-col gap-16">
       <div className="absolute pointer-events-none w-125 h-175 hero-gradient rounded-tl-[300px] -left-[500px] top-0 -z-1" />
       <div className="flex flex-col gap-8 ">
         <h1 className="text-6xl max-sm:text-4xl text-center">
