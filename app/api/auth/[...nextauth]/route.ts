@@ -49,6 +49,9 @@ export const authOptions: NextAuthOptions = {
   ],
 
   callbacks: {
+    async redirect({ url, baseUrl }) {
+    return baseUrl + "/main/events";
+  },
     async signIn({ user, account }) {
       // link automaticly oauth accounts to existing email users
       if (account && account.type === "oauth") {

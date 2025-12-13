@@ -104,12 +104,12 @@ const Form = () => {
               <h1 className="text-4xl font-bold">Log In</h1>
               <div className="flex justify-center gap-4">
                 <RiGithubLine
-                onClick={() => {signIn("github",{ callbackUrl: "/main/events" }) ;}}
+                onClick={() => {signIn("github")}}
                   size={40}
                   className="border rounded-md border-white/50  p-2 text-gray-300 cursor-pointer"
                 />
                 <RiGoogleFill
-                onClick={() => {signIn("google",{ callbackUrl: "/main/events" })}}
+                onClick={() => {signIn("google")}}
                   size={40}
                   className="border rounded-md border-white/50  p-2 text-gray-300 cursor-pointer"
                 />
@@ -168,13 +168,13 @@ const Form = () => {
 
               <div className="flex justify-center gap-4">
                 <RiGithubLine
-                onClick={() => {signIn("github",{ callbackUrl: "/main/events" })}}
+                onClick={() => {signIn("github")}}
                   size={40}
                   className="border rounded-md border-white/50 text-gray-300 p-2 cursor-pointer"
                 />
 
                 <RiGoogleFill
-                onClick={() => {signIn("google",{ callbackUrl: "/main/events" });}}
+                onClick={() => {signIn("google")}}
                   size={40}
                   className="border rounded-md border-white/50 text-gray-300 p-2 cursor-pointer"
                 />
