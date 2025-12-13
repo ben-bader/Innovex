@@ -52,7 +52,6 @@ export const authOptions: NextAuthOptions = {
 
   callbacks: {
 
-
     // Attach user ID to JWT
     async jwt({ token, user }) {
       if (user) token.id = user.id;
