@@ -12,11 +12,12 @@ import {
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import Logo from "@/src/UI/Logo";
 
 const Form = () => {
   const [toggle, setToggle] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const [signupMessage, setSignupMessage] = useState<string[]>([]);
+  const [signupMessage, setSignupMessage] = useState("");
   const [loginMessage, setLoginMessage] = useState("");
   // tsjil
   const [form, setForm] = useState({ name: "", email: "", password: "" });
@@ -34,15 +35,12 @@ const Form = () => {
     setLoading(true);
 
     if (form.password !== confirmPassword) {
-      setSignupMessage((prev) => [...prev, "Passwords do not match"]);
+      setSignupMessage("Passwords do not match");
       setLoading(false);
       return;
     }
     if (form.password.length < 6) {
-      setSignupMessage((prev) => [
-        ...prev,
-        "Password must be longer than 6 caracters.",
-      ]);
+      setSignupMessage("Password must be longer than 6 caracters.");
       setLoading(false);
       return;
     }
@@ -64,13 +62,10 @@ const Form = () => {
 
       if (!signInRes?.error){ router.push("/main/events");}
       else {
-        setSignupMessage((prev) => [
-          ...prev,
-          "Signup succeeded but auto-login failed.",
-        ]);
+        setSignupMessage("Signup succeeded but auto-login failed.");
       }
     } else {
-      setSignupMessage((prev) => [...prev, data.error || "Signup failed"]);
+      setSignupMessage(data.error || "Signup failed");
     }
 
     setLoading(false);
@@ -101,28 +96,31 @@ const Form = () => {
                 isVisible ? "flex" : "hidden"
               }`}
             >
+
               <h1 className="text-4xl font-bold">Log In</h1>
               <div className="flex justify-center gap-4">
-                <RiGithubLine
+              {/*   <RiGithubLine
                 onClick={() => {signIn("github", { callbackUrl: "/main/events" })}}
                   size={40}
-                  className="border rounded-md border-white/50  p-2 text-gray-300 cursor-pointer"
+                  className="rounded-md p-2 bg-black cursor-pointer"
                 />
                 <RiGoogleFill
                 onClick={() => {signIn("google", { callbackUrl: "/main/events" })}}
                   size={40}
-                  className="border rounded-md border-white/50  p-2 text-gray-300 cursor-pointer"
+                  className="rounded-md bg-black  p-2 text-gray-300 cursor-pointer"
                 />
-                
+                 */}
               </div>
 
               <form
                 onSubmit={handleLogin}
-                className="flex flex-col gap-5 w-full justify-center items-center px-5"
+                className="flex flex-col gap-3 w-full justify-center items-center px-5"
               >
-                <p className="font-poppins text-gray-300">
+                {/* <p className="font-poppins text-gray-300">
                   or use you&apos;re email password
-                </p>
+                </p> */}
+                <label htmlFor="" className="w-full">
+                  Email
                 <Input
                   type="email"
                   placeholder="Email"
@@ -130,7 +128,9 @@ const Form = () => {
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     setEmail(e.target.value)
                   }
-                />
+                /></label>
+                <label htmlFor="" className="w-full">
+                  Password
                 <Input
                   type="password"
                   placeholder="Password"
@@ -138,7 +138,7 @@ const Form = () => {
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     setPassword(e.target.value)
                   }
-                />
+                /></label>
                 {loginMessage && (
                   <p className="text-red-500 w-full text-left -mb-4">
                     *{loginMessage}
@@ -167,24 +167,26 @@ const Form = () => {
               <h1 className="text-4xl font-bold">Sign Up</h1>
 
               <div className="flex justify-center gap-4">
-                <RiGithubLine
-                onClick={() => {signIn("github", { callbackUrl: "/main/events" })}}
-                  size={40}
-                  className="border rounded-md border-white/50 text-gray-300 p-2 cursor-pointer"
-                />
+               {/*    <RiGithubLine
+                  onClick={() => {signIn("github", { callbackUrl: "/main/events" })}}
+                    size={40}
+                    className="border rounded-md border-white/50 text-gray-300 p-2 cursor-pointer"
+                  />
 
-                <RiGoogleFill
-                onClick={() => {signIn("google", { callbackUrl: "/main/events" })}}
-                  size={40}
-                  className="border rounded-md border-white/50 text-gray-300 p-2 cursor-pointer"
-                />
-               
+                  <RiGoogleFill
+                  onClick={() => {signIn("google", { callbackUrl: "/main/events" })}}
+                    size={40}
+                    className="border rounded-md border-white/50 text-gray-300 p-2 cursor-pointer"
+                  />
+                */} 
               </div>
 
               <form
                 onSubmit={handleSubmit}
-                className="flex flex-col gap-5 w-full justify-center items-center px-5"
+                className="flex flex-col gap-3 w-full justify-center items-center px-5"
               >
+                <label htmlFor="" className="w-full">
+                  Name
                 <Input
                   type="text"
                   placeholder="Username"
@@ -192,15 +194,19 @@ const Form = () => {
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     setForm({ ...form, name: e.target.value })
                   }
-                />
+                /></label>
+                <label htmlFor="" className="w-full">
+                  Email
                 <Input
                   type="email"
-                  placeholder="Email"
+                  placeholder="example@email.com"
                   value={form.email}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     setForm({ ...form, email: e.target.value })
                   }
-                />
+                /></label>
+                <label htmlFor="" className="w-full">
+                  Password
                 <Input
                   type="password"
                   placeholder="Password"
@@ -208,14 +214,16 @@ const Form = () => {
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     setForm({ ...form, password: e.target.value })
                   }
-                />
+                /></label>
+                <label htmlFor="" className="w-full">
+                  Confirm Password
                 <Input
                   type="password"
                   placeholder="Confirm Password"
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     setConfirmPassword(e.target.value)
                   }
-                />
+                /></label>
                 {signupMessage &&
                   [...new Set(signupMessage)].map((msg, index) => (
                     <p
