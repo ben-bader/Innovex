@@ -22,7 +22,7 @@ const CategoryPage:  React.FC = () => {
   }
   return (
     <div className="px-20 max-sm:px-10 py-16 flex flex-col gap-16">
-      <div className="absolute pointer-events-none w-[500px] h-[700px] hero-gradient rounded-tl-[300px] -left-[500px] top-0 -z-1" />
+      <div className="absolute pointer-events-none w-125 h-175 hero-gradient rounded-tl-[300px] -left-[500px] top-0 -z-1" />
       <div className="flex flex-col gap-8 ">
         <h1 className="text-6xl max-sm:text-4xl text-center">
           Explore the{" "}
@@ -36,8 +36,8 @@ const CategoryPage:  React.FC = () => {
         </div>
       </div>
       <div className="grid relative grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-4">
-        <div className="absolute pointer-events-none w-[20rem] max-sm:w-[10rem] h-[30rem] bg-sky-500 blur-[200px] rounded-tl-[300px] right-0 top-[20%]" />
-        <div className="absolute pointer-events-none w-[400px] h-[400px] rounded-full bg-fuchsia-400 blur-[200px] rounded-tl-[300px] -left-0 top-[90%]" />
+        <div className="absolute pointer-events-none w-[20rem] max-sm:w-40 max-sm:left-0 h-120 bg-sky-500 blur-[200px] rounded-tl-[300px] right-0 top-[20%]" />
+        <div className="absolute pointer-events-none w-100 h-100 max-sm:w-40  rounded-full bg-fuchsia-400 blur-[200px] rounded-tl-[300px] left-0 top-[90%]" />
         {eventsCategory.map((event) => (
           <EventCard key={event.id} event={event} />
         ))}
