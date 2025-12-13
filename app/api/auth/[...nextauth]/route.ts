@@ -51,10 +51,7 @@ export const authOptions: NextAuthOptions = {
   ],
 
   callbacks: {
-    // Redirect after login
-    async redirect({ url, baseUrl }) {
-      return `${baseUrl}/main/events`;
-    },
+
 
     // Attach user ID to JWT
     async jwt({ token, user }) {
