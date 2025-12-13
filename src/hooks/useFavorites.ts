@@ -7,12 +7,12 @@ export function useFavorites() {
   const [favorites, setFavorites] = useState<number[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Load all favorites for the current user
+  
   const load = useCallback(async () => {
     setLoading(true);
     try {
       const res = await fetch("/api/favorites");
-      if (!res.ok) return [];
+      if (!res.ok) return null;
 
       const data = await res.json();
       setFavorites(data.events.map((e: Event) => e.id));
@@ -28,16 +28,16 @@ export function useFavorites() {
     load();
   }, [load]);
 
-  // Toggle favorite for an event
+ // dir 9elb to toggle  
   const toggle = useCallback(
     async (eventId: number) => {
       try {
         if (favorites.includes(eventId)) {
-          // DELETE request
+          // DELETE request ila kan f database
           await fetch(`/api/favorites/${eventId}`, { method: "DELETE" });
           setFavorites((prev) => prev.filter((id) => id !== eventId));
         } else {
-          // POST request
+          // POST request ila makanch
           await fetch("/api/favorites", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
