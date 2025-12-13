@@ -7,23 +7,24 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
-
-model user {
+model User {
   id        String    @id @default(cuid())
-  email     String    @unique
-  name      String
+  email     String?   @unique
+  name      String?
   password  String?
+  image     String?
+
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
-  messages  message[]
-  favorites favorite[]
+
+  messages  Message[]
+  favorites Favorite[]
 
   accounts  Account[]
   sessions  Session[]
 }
 
-model message {
+model Message {
   id        String   @id @default(cuid())
   name      String
   email     String
@@ -31,12 +32,13 @@ model message {
   message   String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
   userId    String
-  user      user     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
-model event {
-  id          Int        @id @default(autoincrement())
+model Event {
+  id          Int        @id 
   name        String
   url         String
   date        DateTime
@@ -47,37 +49,38 @@ model event {
   category    String
   image       String
   description String
-  favorites   favorite[]
+
+  favorites   Favorite[]
 }
 
-model favorite {
-  id      String @id @default(uuid())
-  user    user   @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId  String
-  event   event  @relation(fields: [eventId], references: [id], onDelete: Cascade)
-  eventId Int
+model Favorite {
+  id        String   @id @default(uuid())
+  userId    String
+  eventId   Int
   createdAt DateTime @default(now())
 
-  @@unique([userId, eventId]) 
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  event Event @relation(fields: [eventId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, eventId])
 }
 
-
-
 model Account {
-  id                 String  @id @default(cuid())
-  userId             String
-  type               String
-  provider           String
-  providerAccountId  String
-  refresh_token      String?
-  access_token       String?
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String?
-  session_state      String?
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
 
-  user user @relation(fields: [userId], references: [id], onDelete: Cascade)
+  refresh_token String?
+  access_token  String?
+  expires_at    Int?
+  token_type    String?
+  scope         String?
+  id_token      String?
+  session_state String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }
@@ -88,7 +91,7 @@ model Session {
   userId       String
   expires      DateTime
 
-  user user @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model VerificationToken {

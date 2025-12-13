@@ -1,4 +1,4 @@
-// app/api/auth/[...nextauth]/route.ts
+
 import NextAuth, { NextAuthOptions } from "next-auth";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import CredentialsProvider from "next-auth/providers/credentials";
@@ -9,9 +9,11 @@ import { prisma } from "@/lib/prisma";
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
+
   session: {
     strategy: "jwt",
   },
+
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -49,53 +51,18 @@ export const authOptions: NextAuthOptions = {
   ],
 
   callbacks: {
+    // Redirect after login
     async redirect({ url, baseUrl }) {
-    return baseUrl + "/main/events";
-  },
-    async signIn({ user, account }) {
-      // link automaticly oauth accounts to existing email users
-      if (account && account.type === "oauth") {
-        const existingUser = await prisma.user.findUnique({
-          where: { email: user.email! },
-        });
-
-        if (existingUser) {
-          // check if aouth account already exists
-          const existingAccount = await prisma.account.findUnique({
-            where: {
-              provider_providerAccountId: {
-                provider: account.provider,
-                providerAccountId: account.providerAccountId,
-              },
-            },
-          });
-
-          if (!existingAccount) {
-            // Link the OAuth account to the existing user
-            await prisma.account.create({
-              data: {
-                userId: existingUser.id,
-                type: account.type,
-                provider: account.provider,
-                providerAccountId: account.providerAccountId,
-                access_token: account.access_token,
-                token_type: account.token_type,
-                id_token: account.id_token,
-                scope: account.scope,
-                expires_at: account.expires_at,
-              },
-            });
-          }
-        }
-      }
-      return true;
+      return `${baseUrl}/main/events`;
     },
 
+    // Attach user ID to JWT
     async jwt({ token, user }) {
       if (user) token.id = user.id;
       return token;
     },
 
+    // Attach user ID to session
     async session({ session, token }) {
       if (token?.id) session.user.id = token.id;
       return session;
@@ -103,8 +70,8 @@ export const authOptions: NextAuthOptions = {
   },
 
   pages: {
-    signIn: "/access", 
-    error: "/access",   
+    signIn: "/access", // custom login page
+    error: "/access",  // redirect OAuth errors here
   },
 
   secret: process.env.NEXTAUTH_SECRET,
