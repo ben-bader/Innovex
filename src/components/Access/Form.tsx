@@ -62,7 +62,7 @@ const Form = () => {
         redirect: false,
       }); 
 
-      if (!signInRes?.error) router.push("/main/events");
+      if (!signInRes?.error){ router.push("/main/events");}
       else {
         setSignupMessage((prev) => [
           ...prev,

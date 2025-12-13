@@ -11,13 +11,7 @@ import EventCard from "@/src/UI/EventCard";
 export default function Events() {
   const { data: session, status } = useSession();
   const { events, loading } = useEvents();
-  if (loading || events.length === 0) {
-    return (
-      <section className="flex items-center justify-center h-96">
-        <Loader />
-      </section>
-    );
-  }
+
   return (
     <section
       id="events"

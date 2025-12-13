@@ -7,6 +7,7 @@ import Button from "./Button";
 import { Event } from "@/src/hooks/useEvents";
 import { Heart } from "lucide-react";
 import { useFavorites } from "@/src/hooks/useFavorites";
+import { useSession } from "next-auth/react";
 
 interface EventCardProps {
   event: Event;
@@ -16,7 +17,7 @@ interface EventCardProps {
 const EventCard: React.FC<EventCardProps> = ({ event }) => {
   const { favorites, toggle } = useFavorites();
   const isFavorite = favorites.includes(event.id);
-
+const {data : session, status} = useSession();
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.97, y: 20 }}
@@ -58,7 +59,7 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
           <p className="text-gray-300 text-sm mb-2">Venue: {event.venue}</p>
         )}
         <div className="flex mt-2">
-          <Button text="Get Ticket ->" href={`/main/events/${event.id}`} />
+          <Button text="Get Ticket ->" href={status === "authenticated" ? `/main/events/${event.id}` : "/access" } />
         </div>
       </div>
     </motion.div>
