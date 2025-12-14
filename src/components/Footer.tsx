@@ -47,8 +47,8 @@ const Footer:React.FC = () => {
           </p>
         </div>
       </div>
-      <div className="flex max-sm:flex-col items-center gap-8 justify-between">
-        <div className="flex items-center justify-center gap-6">
+      <div className="flex max-sm:flex-col gap-8 justify-between">
+        <div className="flex gap-6">
           <a href="/main/policy/terms" target="_blank">
             Terms
           </a>
