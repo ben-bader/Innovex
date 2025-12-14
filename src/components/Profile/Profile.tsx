@@ -8,7 +8,7 @@ const Profile: React.FC = () => {
 
   return (
     <>
-      <nav className="flex justify-between items-center gap-4 max-sm:gap-2">
+      <nav className="flex items-center gap-4 max-sm:gap-2">
         <button
           onClick={() => setToggle("edit")}
           className={`px-6 py-2 cursor-pointer 
