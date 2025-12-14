@@ -162,7 +162,7 @@ const About: React.FC = () => {
           <h1 className="text-2xl font-bold -my-2">Upcomming events</h1>
           <div className="flex flex-col gap-4">
             {events.map((event) =>
-              event.id < 3 ? (
+              event.id < 3 && (
                 <a
                   key={event.id}
                   href={`/main/events/${event.id}`}
@@ -179,9 +179,7 @@ const About: React.FC = () => {
                     </p>
                   </span>
                 </a>
-              ) : (
-                ""
-              )
+              ) 
             )}
           </div>
         </motion.div>

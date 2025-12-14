@@ -46,7 +46,7 @@ import EventCard from "@/src/UI/EventCard";
         </p>
         <div className="w-full flex justify-center mt-4">
           <Button
-            href={status === "authenticated" ? "/main/events" : "/access"}
+            href="/main/events"
             text="All Events ->"
           />
         </div>

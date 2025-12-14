@@ -7,7 +7,7 @@ const Button  = ({href,text,className}:{href ?: string,text ?: string ,className
   const { data : session , status}  = useSession();
   return (
     <a
-      href={status == "authenticated" ? href : "/Access"}
+      href={status == "authenticated" ? href : "/access"}
       target="_blank"
       className={`
         relative overflow-hidden rounded-full px-6 py-[6px] text-lg
