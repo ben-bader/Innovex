@@ -189,9 +189,9 @@ const Contact: React.FC = () => {
                 </svg>
               </div>
               <p className="my-2">
-                I hereby agree to our{" "}
+                I hereby agree to {" "}
                 <a
-                  href="/main/Policy/Privacy"
+                  href="/main/policy/privacy"
                   className="text-blue-500 underline"
                 >
                   Privacy Policy
