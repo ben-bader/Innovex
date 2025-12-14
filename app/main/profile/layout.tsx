@@ -11,7 +11,6 @@ const Layout:React.FC<Props> = ({children}) => {
   return (
     <div className="px-20 py-8 max-sm:px-6 flex flex-col gap-16" >
         <UserInfos/>
-
         {children}
     </div>
   )

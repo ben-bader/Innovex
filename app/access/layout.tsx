@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import '@/app/globals.css';
 
 export const metadata = {
-  title: "Innovex Access",
+  title: "Innovex | Access",
 };
 
 export default function Layout({ children }: { children?: ReactNode }) {

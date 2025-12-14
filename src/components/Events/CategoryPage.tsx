@@ -5,8 +5,16 @@ import Button from "@/src/UI/Button";
 import EventCard from "@/src/UI/EventCard";
 import Loader from "@/src/UI/Loader";
 import { useParams } from "next/navigation";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+
 
 const CategoryPage: React.FC = () => {
+    const { data: session,status } = useSession();
+    const router = useRouter();
+     if (status === "unauthenticated") {
+      router.back();
+    }
   const { category } = useParams();
   const { events, loading } = useEvents();
   const eventsCategory: Event[] | undefined = events.filter(

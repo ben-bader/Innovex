@@ -32,7 +32,6 @@ const ChangeInfos:React.FC = () => {
 
   const [newPassword, SetNewPassword] = useState("");
   const [confirmPassword, SetConfirmPassword] = useState("");
-
   async function updatePass(e: React.FormEvent) {
     e.preventDefault();
     if (newPassword !== confirmPassword) {

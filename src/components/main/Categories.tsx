@@ -17,7 +17,7 @@ const CategoryCard = ({
 }) => {
   const { data: session, status } = useSession();
   return (
-    <a href={status === "authenticated" ? href : "/Access"}>
+    <a href={status === "authenticated" ? href : "/access"}>
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}

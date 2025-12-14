@@ -10,9 +10,11 @@ import { useRouter } from "next/navigation";
 
 
 const EventPage: React.FC = () => {
-  const { data: session } = useSession();
+  const { data: session,status } = useSession();
   const router = useRouter();
-
+   if (status === "unauthenticated") {
+    router.back();
+  }
   const { events, loading } = useEvents();
   const { id } = useParams();
   const event: Event | undefined = events.find(

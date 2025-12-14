@@ -7,9 +7,11 @@ import { people } from "@/public/data/export";
 import Image from "next/image";
 import { useEvents } from "../../hooks/useEvents";
 import React from "react";
+import { useSession } from "next-auth/react";
 
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 const About: React.FC = () => {
+  const { data : session,status  } = useSession();
   const options = {
     chart: {
       id: "events-chart",
@@ -165,7 +167,7 @@ const About: React.FC = () => {
               event.id < 3 && (
                 <a
                   key={event.id}
-                  href={`/main/events/${event.id}`}
+                  href={status === "authenticated"  ? `/main/events/${event.id}` : "/access"}
                   className="flex items-center py-2 px-3 space-x-2 cursor-pointer rounded-md bg-white/10  backdrop-blur-3xl active:scale-[0.99]"
                 >
                   <Ticket className="w-10 h-10 max-sm:hidden p-1" />
