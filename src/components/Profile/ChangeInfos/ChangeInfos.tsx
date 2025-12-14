@@ -63,7 +63,8 @@ const ChangeInfos:React.FC = () => {
     const res = await fetch("/api/account", {
       method: "DELETE",
     });
-
+    const data = await res.json();
+    console.log("Delete response:", data);
     if (res.ok) {
       await signOut({ callbackUrl: "/main" });
     }
@@ -136,6 +137,7 @@ const ChangeInfos:React.FC = () => {
 
         <button
           onClick={deleteAccount}
+          type="button"
           className="bg-red-500 cursor-pointer text-white px-4 py-2 rounded-md hover:bg-red-700 transition-all"
         >
           Delete Account
