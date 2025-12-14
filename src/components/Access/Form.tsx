@@ -98,9 +98,7 @@ const Form: React.FC = () => {
               }`}
             >
               <h1 className="text-3xl font-bold">Login to your account</h1>
-              <p className="text-gray-300 text-center">
-                Enter your email below to login to your account
-              </p>
+              <p className="text-gray-300 text-center">Enter your email below to login to your account</p>
               <div className="flex justify-center gap-4">
                 {/*   <RiGithubLine
                 onClick={() => {signIn("github", { callbackUrl: "/main/events" })}}
@@ -167,9 +165,7 @@ const Form: React.FC = () => {
               }`}
             >
               <h1 className="text-3xl font-bold">Create your account</h1>
-              <p className="text-gray-300 text-center">
-                Fill in the form below to create your account
-              </p>
+              <p className="text-gray-300 text-center">Fill in the form below to create your account</p>
               <div className="flex justify-center gap-4">
                 {/*    <RiGithubLine
                   onClick={() => {signIn("github", { callbackUrl: "/main/events" })}}
