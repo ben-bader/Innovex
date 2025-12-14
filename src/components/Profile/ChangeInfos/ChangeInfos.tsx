@@ -6,7 +6,7 @@ import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export default function ChangeInfos() {
+const ChangeInfos:React.FC = () => {
   const { data: session, status, update } = useSession();
   const router = useRouter();
   const [Infosmessage, setInfosMessage] = useState({ msg: "", color: "" });
@@ -86,7 +86,7 @@ export default function ChangeInfos() {
               onChange={(e) => {
                 setName(e.target.value);
               }}
-              className="!focus:scale-100"
+              placeholder="new name"
             />
           </label>
           <label htmlFor="email" className="flex flex-col gap-2">
@@ -95,17 +95,15 @@ export default function ChangeInfos() {
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
-              className="!focus:scale-100"
+              placeholder="new@email.com"
             />
           </label>
           {Infosmessage.msg && (
             <p style={{ color: Infosmessage.color }}>*{Infosmessage.msg}</p>
           )}
-          <div className="flex justify-end">
-            <button className="w-full text-center py-2 bg-gray-300 text-black rounded-md text-lg cursor-pointer focus:scale-[0.98] duration-300 transition-all">
-              Confirm
-            </button>
-          </div>
+     
+            <SecondaryButton text="Confirm"/>
+
         </form>
       </div>
       <h1 className="-mb-12">Change Password </h1>
@@ -117,7 +115,7 @@ export default function ChangeInfos() {
               onChange={(e) => {
                 SetNewPassword(e.target.value);
               }}
-              className="!focus:scale-100"
+              placeholder="new password"
             />
           </label>
           <label htmlFor="email" className="flex flex-col gap-2">
@@ -126,13 +124,11 @@ export default function ChangeInfos() {
               onChange={(e) => {
                 SetConfirmPassword(e.target.value);
               }}
-              className="!focus:scale-100"
+              placeholder="confirm password"
             />
           </label>
           {passMessage.msg && <p style={{color:passMessage.color}}>*{passMessage.msg}</p>}
-          <div className="flex justify-end">
             <SecondaryButton text="Change Password" />
-          </div>
         </form>
       </div>
       <h1 className="-mb-12">Delete Account</h1>
@@ -145,7 +141,7 @@ export default function ChangeInfos() {
 
         <button
           onClick={deleteAccount}
-          className="bg-red-500 cursor-pointer text-white px-4 py-2 rounded hover:bg-red-700 transition-all"
+          className="bg-red-500 cursor-pointer text-white px-4 py-2 rounded-md hover:bg-red-700 transition-all"
         >
           Delete Account
         </button>
@@ -153,3 +149,4 @@ export default function ChangeInfos() {
     </div>
   );
 }
+export default ChangeInfos;

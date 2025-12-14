@@ -8,7 +8,7 @@ import { useEvents } from "../../hooks/useEvents";
 import Loader from "@/src/UI/Loader";
 import { useSession } from "next-auth/react";
 
-export default function Home() {
+const Hero:React.FC = ()=> {
   const { data: session, status } = useSession();
   const { events, loading } = useEvents();
   if (loading || events.length === 0) {
@@ -73,3 +73,4 @@ export default function Home() {
     </motion.section>
   );
 }
+export default Hero;

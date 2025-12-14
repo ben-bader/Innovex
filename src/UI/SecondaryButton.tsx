@@ -13,7 +13,7 @@ const SecondaryButton = React.forwardRef<HTMLButtonElement,SecondaryButtonProps>
       <button
         ref={ref}
         {...rest}
-        className={`w-full  py-[0.4rem] bg-gray-300 text-black rounded-lg border text-lg cursor-pointer focus:scale-[0.98] duration-300 transition-all`}
+        className={`w-full  py-1.5 bg-gray-300 text-black rounded-md border cursor-pointer focus:scale-[0.98] duration-300 transition-all`}
         type="submit"
       >
         <span className="flex gap-2 items-center justify-center">

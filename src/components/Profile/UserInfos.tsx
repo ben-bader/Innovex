@@ -3,7 +3,7 @@
 import { LogOut } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 
-const UserInfos = () => {
+const UserInfos:React.FC = () => {
   const { data: session } = useSession();
 
   return (
@@ -21,6 +21,7 @@ const UserInfos = () => {
           <button
             onClick={() => {
               signOut({ callbackUrl: "/main" });
+              
             }}
             className="flex items-center gap-2 text-red-500 cursor-pointer"
           >

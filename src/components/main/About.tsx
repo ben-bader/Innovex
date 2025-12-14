@@ -6,12 +6,16 @@ import { motion } from "framer-motion";
 import { people } from "@/public/data/export";
 import Image from "next/image";
 import { useEvents } from "../../hooks/useEvents";
+import React from "react";
 
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-
-export default function About() {
+const About: React.FC = () => {
   const options = {
-    chart: { id: "events-chart", toolbar: { show: false }, zoom: { enabled: false } },
+    chart: {
+      id: "events-chart",
+      toolbar: { show: false },
+      zoom: { enabled: false },
+    },
 
     xaxis: {
       categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "jul"],
@@ -102,7 +106,6 @@ export default function About() {
               </span>
             </h1>
             <Chart
-            
               options={options}
               series={series}
               type="line"
@@ -234,4 +237,5 @@ export default function About() {
       </div>
     </section>
   );
-}
+};
+export default About;

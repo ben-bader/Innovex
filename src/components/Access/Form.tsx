@@ -12,11 +12,11 @@ import {
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import Logo from "@/src/UI/Logo";
 
-const Form = () => {
+const Form: React.FC = () => {
   const [toggle, setToggle] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
+  // les message dyal error
   const [signupMessage, setSignupMessage] = useState("");
   const [loginMessage, setLoginMessage] = useState("");
   // tsjil
@@ -58,10 +58,11 @@ const Form = () => {
         email: form.email,
         password: form.password,
         redirect: false,
-      }); 
+      });
 
-      if (!signInRes?.error){ router.push("/main/events");}
-      else {
+      if (!signInRes?.error) {
+        router.push("/main/events");
+      } else {
         setSignupMessage("Signup succeeded but auto-login failed.");
       }
     } else {
@@ -92,14 +93,16 @@ const Form = () => {
           <div className="flex w-full gap-16 ">
             <div
               id="login"
-              className={`flex flex-col  justify-center items-center w-full gap-5 ${
+              className={`flex flex-col  justify-center items-center w-full gap-3 ${
                 isVisible ? "flex" : "hidden"
               }`}
             >
-
-              <h1 className="text-4xl font-bold">Log In</h1>
+              <h1 className="text-3xl font-bold">Login to your account</h1>
+              <p className="text-gray-300">
+                Enter your email below to login to your account
+              </p>
               <div className="flex justify-center gap-4">
-              {/*   <RiGithubLine
+                {/*   <RiGithubLine
                 onClick={() => {signIn("github", { callbackUrl: "/main/events" })}}
                   size={40}
                   className="rounded-md p-2 bg-black cursor-pointer"
@@ -114,29 +117,30 @@ const Form = () => {
 
               <form
                 onSubmit={handleLogin}
-                className="flex flex-col gap-3 w-full justify-center items-center px-5"
+                className="flex flex-col gap-5 w-full justify-center items-center px-5"
               >
-              
-                <label htmlFor="" className="w-full">
+                <label htmlFor="" className="w-full flex flex-col gap-1">
                   Email
-                <Input
-                  type="email"
-                  placeholder="Email"
-                  value={email}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                    setEmail(e.target.value)
-                  }
-                /></label>
-                <label htmlFor="" className="w-full">
+                  <Input
+                    type="email"
+                    placeholder="example@email.com"
+                    value={email}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                      setEmail(e.target.value)
+                    }
+                  />
+                </label>
+                <label htmlFor="" className="w-full flex flex-col gap-1">
                   Password
-                <Input
-                  type="password"
-                  placeholder="Password"
-                  value={password}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                    setPassword(e.target.value)
-                  }
-                /></label>
+                  <Input
+                    type="password"
+                    placeholder="password"
+                    value={password}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                      setPassword(e.target.value)
+                    }
+                  />
+                </label>
                 {loginMessage && (
                   <p className="text-red-500 w-full text-left -mb-4">
                     *{loginMessage}
@@ -145,7 +149,7 @@ const Form = () => {
 
                 <SecondaryButton text={loading ? "Loging..." : "Log in"} />
               </form>
-              <p className="block md:hidden font-poppins">
+              <p className="block md:hidden">
                 Don&apos;t have an acount{" "}
                 <a
                   className="underline text-blue-500 cursor-pointer sm:hidden"
@@ -158,14 +162,16 @@ const Form = () => {
 
             <div
               id="signup"
-              className={`lg:flex flex-col justify-center items-center w-full gap-5 ${
+              className={`lg:flex flex-col justify-center items-center w-full gap-2 ${
                 isVisible ? "hidden" : "flex"
               }`}
             >
-              <h1 className="text-4xl font-bold">Sign Up</h1>
-
+              <h1 className="text-3xl font-bold">Create your account</h1>
+              <p className="text-gray-300">
+                Fill in the form below to create your account
+              </p>
               <div className="flex justify-center gap-4">
-               {/*    <RiGithubLine
+                {/*    <RiGithubLine
                   onClick={() => {signIn("github", { callbackUrl: "/main/events" })}}
                     size={40}
                     className="border rounded-md border-white/50 text-gray-300 p-2 cursor-pointer"
@@ -176,68 +182,68 @@ const Form = () => {
                     size={40}
                     className="border rounded-md border-white/50 text-gray-300 p-2 cursor-pointer"
                   />
-                */} 
+                */}
               </div>
 
               <form
                 onSubmit={handleSubmit}
                 className="flex flex-col gap-3 w-full justify-center items-center px-5"
               >
-                <label htmlFor="" className="w-full">
+                <label htmlFor="" className="w-full flex flex-col gap-1">
                   Name
-                <Input
-                  type="text"
-                  placeholder="Username"
-                  value={form.name}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                    setForm({ ...form, name: e.target.value })
-                  }
-                /></label>
-                <label htmlFor="" className="w-full">
+                  <Input
+                    type="text"
+                    placeholder="your name"
+                    value={form.name}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                      setForm({ ...form, name: e.target.value })
+                    }
+                  />
+                </label>
+                <label htmlFor="" className="w-full flex flex-col gap-1">
                   Email
-                <Input
-                  type="email"
-                  placeholder="example@email.com"
-                  value={form.email}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                    setForm({ ...form, email: e.target.value })
-                  }
-                /></label>
-                <label htmlFor="" className="w-full">
+                  <Input
+                    type="email"
+                    placeholder="example@email.com"
+                    value={form.email}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                      setForm({ ...form, email: e.target.value })
+                    }
+                  />
+                </label>
+                <label htmlFor="" className="w-full flex flex-col gap-1">
                   Password
-                <Input
-                  type="password"
-                  placeholder="Password"
-                  value={form.password}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                    setForm({ ...form, password: e.target.value })
-                  }
-                /></label>
-                <label htmlFor="" className="w-full">
+                  <Input
+                    type="password"
+                    placeholder="password"
+                    value={form.password}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                      setForm({ ...form, password: e.target.value })
+                    }
+                  />
+                </label>
+                <label htmlFor="" className="w-full flex flex-col gap-1">
                   Confirm Password
-                <Input
-                  type="password"
-                  placeholder="Confirm Password"
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                    setConfirmPassword(e.target.value)
-                  }
-                /></label>
-                {signupMessage &&
-                  [...new Set(signupMessage)].map((msg, index) => (
-                    <p
-                      key={index}
-                      className="text-red-500 w-full text-left -mb-4"
-                    >
-                      *{msg}
-                    </p>
-                  ))}
+                  <Input
+                    type="password"
+                    placeholder="confirm password"
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                      setConfirmPassword(e.target.value)
+                    }
+                  />
+                </label>
+                {signupMessage && (
+                  <p className="text-red-500 w-full text-left -my-2">
+                    *{signupMessage}
+                  </p>
+                )}
 
                 <SecondaryButton
                   text={loading ? "Creating account..." : "Create account"}
                   className="rounded-full"
                 />
               </form>
-              <p className="block md:hidden font-poppins">
+              <p className="block md:hidden">
                 Already have an acount{" "}
                 <a
                   className="underline text-blue-500 cursor-pointer sm:hidden"
@@ -258,7 +264,13 @@ const Form = () => {
             }}
           >
             <div>
-              <Image src="/Images/logo.png" alt="logo" width={50} height={50} className=""/>
+              <Image
+                src="/Images/logo.png"
+                alt="logo"
+                width={50}
+                height={50}
+                className=""
+              />
             </div>
             <h1 className="text-4xl font-boldonse text-gray-200 gap-4 font-semibold tracking-[1px]">
               {toggle ? "Hello Friend" : "Welcome Back"}
@@ -276,9 +288,9 @@ const Form = () => {
             </p>
             <button
               onClick={() => setToggle(!toggle)}
-              className="px-8 py-2 text-lg rounded-full border text-gray-100 hover:text-white border-white/30 cursor-pointer bg-blue-500 active:scale-95 transition-all"
+              className="px-8 py-2 text-lg rounded-full text-black cursor-pointer bg-gray-300 active:scale-95 transition-all"
             >
-              {toggle ? "Log In" : "Sign Up"}
+              {toggle ? "Login" : "Sign up"}
             </button>
           </div>
         </div>

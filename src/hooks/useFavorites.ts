@@ -17,7 +17,6 @@ export function useFavorites() {
       const data = await res.json();
       setFavorites(data.events.map((e: Event) => e.id));
     } catch (err) {
-      console.error(err);
       setFavorites([]);
     } finally {
       setLoading(false);
@@ -46,7 +45,7 @@ export function useFavorites() {
           setFavorites((prev) => [...prev, eventId]);
         }
       } catch (err) {
-        console.error(err);
+        
       }
     },
     [favorites]

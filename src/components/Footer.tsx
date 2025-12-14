@@ -1,10 +1,10 @@
 import { RiInstagramLine, RiTwitterXFill, RiGithubLine } from "react-icons/ri";
 import Logo from "../UI/Logo";
 
-const Footer = () => {
+const Footer:React.FC = () => {
   return (
     <footer className="flex flex-col overflow-hidden gap-32 max-sm:gap-20 py-16 px-20 max-sm:px-6 relative">
-      <div className="absolute bottom-[-80%] max-sm:bottom-0 left-[15%] max-sm:right-[10%] blur-[150px] rounded-full bg-gradient-to-r from-blue-500 to-purple-500 w-[50rem] max-sm:w-96 h-[20rem] -z-10" />
+      <div className="absolute bottom-[-80%] max-sm:bottom-0 left-[15%] max-sm:right-[10%] blur-[150px] rounded-full bg-linear-to-r from-blue-500 to-purple-500 w-[50rem] max-sm:w-96 h-[20rem] -z-10" />
       <div className="flex max-sm:flex-col max-sm:gap-8 justify-between">
         <div className="flex flex-col items-start gap-4">
           <Logo />
@@ -47,8 +47,8 @@ const Footer = () => {
           </p>
         </div>
       </div>
-      <div className="flex max-sm:flex-col gap-8 justify-between">
-        <div className="flex gap-6">
+      <div className="flex max-sm:flex-col items-center gap-8 justify-between">
+        <div className="flex items-center justify-center gap-6">
           <a href="/main/policy/terms" target="_blank">
             Terms
           </a>

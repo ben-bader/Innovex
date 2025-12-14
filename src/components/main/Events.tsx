@@ -8,7 +8,7 @@ import Loader from "@/src/UI/Loader";
 import { useSession } from "next-auth/react";
 import EventCard from "@/src/UI/EventCard";
 
-export default function Events() {
+ const Events : React.FC = ()=> {
   const { data: session, status } = useSession();
   const { events, loading } = useEvents();
 
@@ -65,3 +65,4 @@ export default function Events() {
     </section>
   );
 }
+export default Events;

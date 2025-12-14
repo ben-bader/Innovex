@@ -39,8 +39,7 @@ const CategoryCard = ({
     </a>
   );
 };
-
-export default function Categories() {
+const Categories:React.FC = () => {
   return (
     <section
       id="categories"
@@ -113,3 +112,4 @@ export default function Categories() {
     </section>
   );
 }
+export default Categories;

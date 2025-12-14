@@ -1,9 +1,8 @@
 "use client";
 
-import Button from "@/src/UI/Button";
 import { motion } from "framer-motion";
 
-export default function TermsPage() {
+const TermsPage:React.FC = () => {
   const updatedAt = "December 7, 2025";
   return (
     <section
@@ -113,3 +112,4 @@ export default function TermsPage() {
     </section>
   );
 }
+export default TermsPage;

@@ -6,7 +6,7 @@ import EventCard from "@/src/UI/EventCard";
 import Loader from "@/src/UI/Loader";
 import { useParams } from "next/navigation";
 
-const CategoryPage:  React.FC = () => {
+const CategoryPage: React.FC = () => {
   const { category } = useParams();
   const { events, loading } = useEvents();
   const eventsCategory: Event[] | undefined = events.filter(

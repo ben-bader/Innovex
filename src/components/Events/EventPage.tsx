@@ -1,14 +1,18 @@
 "use client";
 import { useEvents, Event } from "@/src/hooks/useEvents";
 import Button from "@/src/UI/Button";
-import EventCountdown from "@/src/UI/EventCountDown";
 import Loader from "@/src/UI/Loader";
 import Image from "next/image";
 import { useParams } from "next/navigation";
-import { motion } from "framer-motion";
 import { people } from "@/public/data/export";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
-const EventPage:  React.FC = () => {
+
+const EventPage: React.FC = () => {
+  const { data: session } = useSession();
+  const router = useRouter();
+
   const { events, loading } = useEvents();
   const { id } = useParams();
   const event: Event | undefined = events.find(
@@ -37,7 +41,7 @@ const EventPage:  React.FC = () => {
         <div className="flex flex-col gap-4">
           <span className="text-sm flex justify-center items-center w-60 gap-1 text-center py-1 bg-pink-500 rounded-full">
             {event?.date} - {event?.time}{" "}
-            <span className="w-[1px] h-4 bg-white"></span>
+            <span className="w-px h-4 bg-white"></span>
             {event?.city}
           </span>
           <h1 className="text-6xl max-sm:text-5xl">{event?.name}</h1>
@@ -58,8 +62,13 @@ const EventPage:  React.FC = () => {
             </div>
             <p className="max-sm:text-sm">+ 256 people bought tickets</p>
           </div>
+          <div>
+            {event?.price &&
+                <p>Ticket Price:  {`${(event?.price / 100).toFixed(2)}`}$</p>
+            }
+          </div>
           <div className="flex">
-            <Button text="Buy a Ticket" className="cursor-pointer" />
+            <Button text="Buy a Ticket" href={`/checkout/${event?.id}`} className="cursor-pointer" />
           </div>
         </div>
       </div>

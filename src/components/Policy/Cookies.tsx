@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-export default function CookiesPolicyPage() {
+import React from "react";
+const CookiesPolicyPage:React.FC =() => {
   const updatedAt = "December 7, 2025";
 
   return (
@@ -139,3 +139,4 @@ export default function CookiesPolicyPage() {
     </section>
   );
 }
+export default CookiesPolicyPage;

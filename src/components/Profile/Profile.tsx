@@ -1,34 +1,51 @@
 import React, { useState } from "react";
 import ChangeInfos from "./ChangeInfos/ChangeInfos";
 import Favorites from "./Favorites/Favorites";
+import Payments from "./Payments/Payments";
 
-const Profile = () => {
-  const [toggle, setToggle] = useState(true);
+const Profile: React.FC = () => {
+  const [toggle, setToggle] = useState("edit");
 
   return (
     <>
       <nav className="flex gap-4">
         <button
-          onClick={() => setToggle(true)}
+          onClick={() => setToggle("edit")}
           className={`px-4 py-2 cursor-pointer 
           ${
-            toggle &&
+            toggle === "edit" &&
             "bg-white/5 backdrop-blur-3xl  rounded-full border border-white/50"
           }`}
         >
           Edit profile
         </button>
         <button
-          onClick={() => setToggle(false)}
+          onClick={() => setToggle("favs")}
           className={`px-4 py-2 cursor-pointer ${
-            !toggle &&
+            toggle === "favs" &&
             "bg-white/5 backdrop-blur-3xl  rounded-full border border-white/50"
           }`}
         >
           Favorites
         </button>
+        <button
+          onClick={() => setToggle("pays")}
+          className={`px-4 py-2 cursor-pointer ${
+            toggle === "pays" &&
+            "bg-white/5 backdrop-blur-3xl  rounded-full border border-white/50"
+          }`}
+        >
+          Payments
+        </button>
       </nav>
-      {toggle ? <ChangeInfos /> : <Favorites />}
+      {}
+      {toggle === "edit" ? (
+        <ChangeInfos />
+      ) : toggle === "favs" ? (
+        <Favorites />
+      ) : toggle === "pays" ? (
+        <Payments />
+      ) : null}
     </>
   );
 };

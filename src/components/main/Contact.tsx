@@ -16,7 +16,7 @@ interface FormData {
   userId: string;
 }
 
-const Contact = () => {
+const Contact: React.FC = () => {
   const { data: session } = useSession();
   const [form, setForm] = useState<FormData>({
     name: "",

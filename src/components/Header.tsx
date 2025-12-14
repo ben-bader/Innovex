@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Logo from "@/src/UI/Logo";
-import { useState } from "react";
+import React, { useState } from "react";
 import { CiMenuFries } from "react-icons/ci";
 import { HiXMark } from "react-icons/hi2";
 import { navItems } from "../../public/data/export";
@@ -9,7 +9,7 @@ import { useSession } from "next-auth/react";
 import ProfileMenu from "../UI/ProfileMenu";
 import { IoIosArrowDown } from "react-icons/io";
 
-const Header = () => {
+const Header:React.FC = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const { data: session, status } = useSession();
   const [profileMenu, setProfileMenu] = useState(false);
@@ -40,7 +40,7 @@ const Header = () => {
         <div className="flex justify-end space-x-4">
           {status === "unauthenticated" ? (
             <a href="/access">
-              <button className="cursor-pointer max-sm:hidden px-4 py-2 bg-white/5 backdrop-blur-sm outline outline-white/30 text-white/80 rounded-full text-sm hover:bg-gradient-to-br hover:from-blue-700 hover:to-purple-500  hover:outline-none hover:text-white duration-300 transition">
+              <button className="cursor-pointer max-sm:hidden px-4 py-2 bg-white/5 backdrop-blur-sm outline outline-white/30 text-white/80 rounded-full text-sm hover:bg-linear-to-br hover:from-blue-700 hover:to-purple-500  hover:outline-none hover:text-white duration-300 transition">
                 Access Innovex
               </button>
             </a>
@@ -97,7 +97,7 @@ const Header = () => {
             <div className="flex flex-col justify-center items-center space-y-4">
               {status === "unauthenticated" && (
                 <a href="/access">
-                  <button className="cursor-pointer px-4 py-2 bg-white/5 backdrop-blur-sm outline outline-white/30 text-white/80 rounded-full text-sm hover:bg-gradient-to-br hover:from-blue-700 hover:to-purple-500  hover:outline-none hover:text-white duration-300 transition">
+                  <button className="cursor-pointer px-4 py-2 bg-white/5 backdrop-blur-sm outline outline-white/30 text-white/80 rounded-full text-sm hover:bg-linear-to-br hover:from-blue-700 hover:to-purple-500  hover:outline-none hover:text-white duration-300 transition">
                     Access Innovex
                   </button>
                 </a>

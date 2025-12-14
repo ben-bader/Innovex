@@ -11,7 +11,6 @@ import { useSession } from "next-auth/react";
 
 interface EventCardProps {
   event: Event;
-
 }
 
 const EventCard: React.FC<EventCardProps> = ({ event }) => {

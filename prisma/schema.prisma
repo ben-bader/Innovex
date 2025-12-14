@@ -8,21 +8,22 @@ datasource db {
 }
 
 model User {
-  id        String    @id @default(cuid())
-  email     String?   @unique
-  name      String?
-  password  String?
-  image     String?
+  id            String    @id @default(cuid())
+  email         String?   @unique
+  name          String?
+  password      String?
+  image         String?
   emailVerified DateTime?
-  
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   messages  Message[]
   favorites Favorite[]
 
-  accounts  Account[]
-  sessions  Session[]
+  accounts Account[]
+  sessions Session[]
+  payments Payment[]
 }
 
 model Message {
@@ -34,12 +35,12 @@ model Message {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  userId    String
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Event {
-  id          Int        @id 
+  id          Int      @id
   name        String
   url         String
   date        DateTime
@@ -50,8 +51,10 @@ model Event {
   category    String
   image       String
   description String
+  price       Int  
 
-  favorites   Favorite[]
+  payments Payment[]
+  favorites Favorite[]
 }
 
 model Favorite {
@@ -66,8 +69,21 @@ model Favorite {
   @@unique([userId, eventId])
 }
 
+model Payment {
+  id        String   @id @default(cuid())
+  userId    String
+  eventId   Int
+  amount    Int
+  status    String
+  createdAt DateTime @default(now())
+
+
+  event Event @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id])
+}
+
 model Account {
-  id                String  @id @default(cuid())
+  id                String @id @default(cuid())
   userId            String
   type              String
   provider          String

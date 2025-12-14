@@ -1,8 +1,9 @@
 "use client";
 import { brands } from "@/public/data/export";
 import Image from "next/image";
+import React from "react";
 
-export default function Brands() {
+const Brands:React.FC = () => {
   return (
     <div className="relative flex items-center w-full h-20 overflow-hidden backdrop-blur-3xl bg-white/20">
       <div className="flex items-center gap-16 scroll-infinite">
@@ -30,3 +31,4 @@ export default function Brands() {
     </div>
   );
 }
+export default Brands;

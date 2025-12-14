@@ -4,7 +4,7 @@ import { useEvents, Event } from "@/src/hooks/useEvents";
 import { useFavorites } from "@/src/hooks/useFavorites";
 import EventCard from "@/src/UI/EventCard";
 
-export default function FavoritesPage() {
+const FavoritesPage:React.FC = () => {
   const { events, loading: eventsLoading } = useEvents();
   const { favorites, loading: favLoading } = useFavorites();
 
@@ -26,3 +26,4 @@ export default function FavoritesPage() {
     </div>
   );
 }
+export default FavoritesPage;

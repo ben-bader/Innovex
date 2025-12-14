@@ -14,6 +14,7 @@ export interface Event {
   category: string;
   image: string;
   description: string;
+  price : number;
 }
 
 export function useEvents() {

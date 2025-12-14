@@ -11,7 +11,8 @@
       "country": "USA",
       "category": "AI",
       "image": "/Images/Events/summit.jpg",
-      "description": "Join top AI experts and innovators for a summit exploring the latest in machine learning and artificial intelligence."
+      "description": "Join top AI experts and innovators for a summit exploring the latest in machine learning and artificial intelligence.",
+      "price": 4500
     },
     {
       "id": 2,
@@ -24,7 +25,8 @@
       "country": "USA",
       "category": "Development",
       "image": "/Images/Events/workshop.jpeg",
-      "description": "Hands-on workshop on modern web and mobile development, featuring practical exercises and industry best practices."
+      "description": "Hands-on workshop on modern web and mobile development, featuring practical exercises and industry best practices.",
+      "price": 3000
     },
     {
       "id": 3,
@@ -37,7 +39,8 @@
       "country": "UK",
       "category": "Cloud",
       "image": "/Images/Events/conference.jpeg",
-      "description": "Explore cloud technologies and solutions with leading cloud providers, including practical case studies and demos."
+      "description": "Explore cloud technologies and solutions with leading cloud providers, including practical case studies and demos.",
+      "price": 3800
     },
     {
       "id": 4,
@@ -50,7 +53,8 @@
       "country": "Germany",
       "category": "Cybersecurity",
       "image": "/Images/Events/bootcamp.jpeg",
-      "description": "Intensive cybersecurity training covering threats, defense strategies, and real-world penetration testing exercises."
+      "description": "Intensive cybersecurity training covering threats, defense strategies, and real-world penetration testing exercises.",
+      "price": 5200
     },
     {
       "id": 5,
@@ -63,7 +67,8 @@
       "country": "Canada",
       "category": "AI",
       "image": "/Images/Events/meetup.jpeg",
-      "description": "Network with entrepreneurs, innovators, and investors to explore the latest trends and opportunities in startups."
+      "description": "Network with entrepreneurs, innovators, and investors to explore the latest trends and opportunities in startups.",
+      "price": 2000
     },
     {
       "id": 6,
@@ -76,7 +81,8 @@
       "country": "France",
       "category": "Data Science",
       "image": "/Images/Events/ds_conference.jpeg",
-      "description": "Discover the newest techniques, tools, and trends in data science, analytics, and machine learning applications."
+      "description": "Discover the newest techniques, tools, and trends in data science, analytics, and machine learning applications.",
+      "price": 4100
     },
     {
       "id": 7,
@@ -89,7 +95,8 @@
       "country": "Japan",
       "category": "AI",
       "image": "/Images/Events/summit.jpg",
-      "description": "A showcase of cutting-edge robotics and AI-driven automation systems."
+      "description": "A showcase of cutting-edge robotics and AI-driven automation systems.",
+      "price": 4700
     },
     {
       "id": 8,
@@ -102,7 +109,8 @@
       "country": "USA",
       "category": "Development",
       "image": "/Images/Events/workshop.jpeg",
-      "description": "Intensive workshop focused on building modern full-stack applications."
+      "description": "Intensive workshop focused on building modern full-stack applications.",
+      "price": 3600
     },
     {
       "id": 9,
@@ -115,7 +123,8 @@
       "country": "Netherlands",
       "category": "Cloud",
       "image": "/Images/Events/conference.jpeg",
-      "description": "Deep dive into serverless architectures and scalable cloud deployments."
+      "description": "Deep dive into serverless architectures and scalable cloud deployments.",
+      "price": 3900
     },
     {
       "id": 10,
@@ -128,7 +137,8 @@
       "country": "Spain",
       "category": "Cybersecurity",
       "image": "/Images/Events/bootcamp.jpeg",
-      "description": "Practical workshop on ethical hacking tools, techniques, and methodologies."
+      "description": "Practical workshop on ethical hacking tools, techniques, and methodologies.",
+      "price": 2800
     },
     {
       "id": 11,
@@ -141,7 +151,8 @@
       "country": "Ireland",
       "category": "Development",
       "image": "/Images/Events/workshop.jpeg",
-      "description": "Connect with tech leaders and innovators for collaboration opportunities."
+      "description": "Connect with tech leaders and innovators for collaboration opportunities.",
+      "price": 2200
     },
     {
       "id": 12,
@@ -154,7 +165,8 @@
       "country": "Sweden",
       "category": "Data Science",
       "image": "/Images/Events/ds_conference.jpeg",
-      "description": "Industry forum discussing advanced analytics and AI-assisted insights."
+      "description": "Industry forum discussing advanced analytics and AI-assisted insights.",
+      "price": 3400
     },
     {
       "id": 13,
@@ -167,7 +179,8 @@
       "country": "South Korea",
       "category": "AI",
       "image": "/Images/Events/summit.jpg",
-      "description": "Explore the newest architectures and optimizations in neural network development."
+      "description": "Explore the newest architectures and optimizations in neural network development.",
+      "price": 4800
     },
     {
       "id": 14,
@@ -180,7 +193,8 @@
       "country": "USA",
       "category": "Development",
       "image": "/Images/Events/workshop.jpeg",
-      "description": "Workshop covering best practices for building scalable mobile apps."
+      "description": "Workshop covering best practices for building scalable mobile apps.",
+      "price": 3100
     },
     {
       "id": 15,
@@ -193,7 +207,8 @@
       "country": "Switzerland",
       "category": "Cloud",
       "image": "/Images/Events/conference.jpeg",
-      "description": "Learn cloud security fundamentals and compliance strategies."
+      "description": "Learn cloud security fundamentals and compliance strategies.",
+      "price": 3300
     },
     {
       "id": 16,
@@ -206,7 +221,8 @@
       "country": "Poland",
       "category": "Cybersecurity",
       "image": "/Images/Events/bootcamp.jpeg",
-      "description": "Advanced red team bootcamp focusing on offensive security methods."
+      "description": "Advanced red team bootcamp focusing on offensive security methods.",
+      "price": 5500
     },
     {
       "id": 17,
@@ -219,7 +235,8 @@
       "country": "UAE",
       "category": "Development",
       "image": "/Images/Events/workshop.jpeg",
-      "description": "Meet entrepreneurs worldwide and explore international startup markets."
+      "description": "Meet entrepreneurs worldwide and explore international startup markets.",
+      "price": 2600
     },
     {
       "id": 18,
@@ -232,7 +249,8 @@
       "country": "China",
       "category": "AI",
       "image": "/Images/Events/summit.jpg",
-      "description": "Exhibition of real-world machine learning applications and projects."
+      "description": "Exhibition of real-world machine learning applications and projects.",
+      "price": 4200
     },
     {
       "id": 19,
@@ -245,7 +263,8 @@
       "country": "USA",
       "category": "Development",
       "image": "/Images/Events/workshop.jpeg",
-      "description": "Learn about the latest frontend frameworks and development tools."
+      "description": "Learn about the latest frontend frameworks and development tools.",
+      "price": 2900
     },
     {
       "id": 20,
@@ -258,7 +277,8 @@
       "country": "Austria",
       "category": "Data Science",
       "image": "/Images/Events/ds_conference.jpeg",
-      "description": "Summit dedicated to modern data engineering pipelines and architectures."
+      "description": "Summit dedicated to modern data engineering pipelines and architectures.",
+      "price": 4000
     },
     {
       "id": 21,
@@ -271,7 +291,8 @@
       "country": "Australia",
       "category": "Cloud",
       "image": "/Images/Events/conference.jpeg",
-      "description": "Meet the biggest cloud providers showcasing next-gen cloud tools and infra."
+      "description": "Meet the biggest cloud providers showcasing next-gen cloud tools and infra.",
+      "price": 4600
     }
   ]
 }

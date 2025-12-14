@@ -22,6 +22,7 @@ async function main() {
         category: event.category,
         image: event.image,
         description: event.description,
+        price :event.price,
       },
     });
   }

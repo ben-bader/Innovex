@@ -4,9 +4,9 @@ import Loader from "@/src/UI/Loader";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import EventCard from "@/src/UI/EventCard";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 
-export default function Events() {
+const EventsPage: React.FC = () => {
   const { data: session, status } = useSession();
   const { events, loading } = useEvents();
   const router = useRouter();
@@ -160,4 +160,5 @@ export default function Events() {
       </div>
     </section>
   );
-}
+};
+export default EventsPage;

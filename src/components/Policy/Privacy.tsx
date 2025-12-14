@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-export default function Privacy() {
+const  Privacy:React.FC = ()  => {
   const updatedAt = "December 7, 2025";
 
   return (
@@ -121,3 +121,4 @@ export default function Privacy() {
     </section>
   );
 }
+export default Privacy;
