@@ -50,7 +50,6 @@ const ChangeInfos:React.FC = () => {
     }
     const data = await res.json();
 
-    console.log(data);
     update?.();
     setPassMessage({ msg: "Password changed succesfuly", color: "#0f0" });
   }
@@ -66,14 +65,10 @@ const ChangeInfos:React.FC = () => {
     });
 
     if (res.ok) {
-      await signOut({ callbackUrl: "/" });
+      await signOut({ callbackUrl: "/main" });
     }
   }
 
-  if (status === "unauthenticated") {
-    router.push("/main");
-    return;
-  }
 
   return (
     <div className="flex flex-col gap-16">

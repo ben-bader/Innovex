@@ -7,7 +7,7 @@ import Input from "@/src/UI/Input";
 import { Event, useEvents } from "@/src/hooks/useEvents";
 import Loader from "@/src/UI/Loader";
 
-export default function CheckoutForm() {
+const CheckoutForm = ()=> {
   const router = useRouter();
   const { events, loading } = useEvents();
   const params = useParams();
@@ -95,3 +95,4 @@ export default function CheckoutForm() {
     </div>
   );
 }
+export default CheckoutForm;
