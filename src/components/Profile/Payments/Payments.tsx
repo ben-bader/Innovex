@@ -14,7 +14,7 @@ const Payments: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-6 relative">
-      <div className="w-80 h-80 bg-linear-to-bl from-blue-500 to-teal-500 absolute rounded-full right-0 top-0 blur-[180px]" />
+      <div className="w-80 h-80 bg-linear-to-bl from-blue-500 to-teal-500 absolute rounded-full right-0 top-0 blur-[180px] -z-50" />
       {events.map((event) => (
         <a
           key={randInt(0,8**100)}
