@@ -78,7 +78,7 @@ const CheckoutForm = () => {
       <div className="absolute bottom-10 right-24 bg-gradient-to-l from-teal-600 to-blue-600 blur-[100px] rounded-full w-[20rem] h-75 -z-10" />
 
       <div className="max-w-xl mx-auto bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8">
-        <h1 className="text-4xl font-bold mb-6 text-center">Checkout</h1>
+        <h1 className="text-4xl text-transparent font-squid bg-clip-text bg-linear-to-tr from-blue-500 to-purple-500 font-bold mb-6 text-center">Checkout</h1>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-5">
           <label htmlFor="" className="flex flex-col gap-2">

@@ -87,8 +87,8 @@ const Page: React.FC = () => {
   return (
     <>
       <div className="h-screen flex items-center px-20 max-sm:px-5">
-        <div className="absolute top-[0%] left-[0%] bg-gradient-to-tr from-fuchsia-600 to-blue-600 blur-[90px] rounded-full w-[30rem] max-sm:w-[20rem] h-[20rem] -z-10" />
-        <div className="absolute bottom-0 right-24 bg-gradient-to-l from-teal-600 to-blue-600 blur-[90px] rounded-full w-[20rem] h-[20rem] max-sm:h-[10rem] -z-10" />
+        <div className="absolute -top-10 -left-44 bg-linear-to-tr from-fuchsia-800 to-blue-500 blur-[120px] rounded-full w-120 max-sm:w-[20rem] h-80 -z-10" />
+        <div className="absolute bottom-0 right-24 bg-linear-to-l from-teal-600 to-blue-600 blur-[90px] rounded-full w-[20rem] h-[20rem] max-sm:h-[10rem] -z-10" />
         <div className="flex flex-1  justify-center items-center border border-white/20 backdrop-blur-3xl  rounded-3xl relative md:px-8 md:py-12 px-2 py-10 w-full">
           <div className="flex w-full gap-16 ">
             <div
@@ -97,7 +97,7 @@ const Page: React.FC = () => {
                 isVisible ? "flex" : "hidden"
               }`}
             >
-              <h1 className="text-3xl font-bold">Login to your account</h1>
+              <h1 className="text-3xl text-transparent bg-clip-text bg-linear-to-tr from-blue-500 to-purple-500 font-squid  font-bold">Login</h1>
               <p className="text-gray-300 text-center">Enter your email below to login to your account</p>
               <div className="flex justify-center gap-4">
                 {/*   <RiGithubLine
@@ -164,7 +164,7 @@ const Page: React.FC = () => {
                 isVisible ? "hidden" : "flex"
               }`}
             >
-              <h1 className="text-3xl font-bold">Create your account</h1>
+              <h1 className="text-3xl text-transparent bg-clip-text bg-linear-to-tr from-blue-500 to-purple-500 font-squid font-bold">Sign up</h1>
               <p className="text-gray-300 text-center">Fill in the form below to create your account</p>
               <div className="flex justify-center gap-4">
                 {/*    <RiGithubLine
