@@ -48,7 +48,7 @@ const EventPage: React.FC = () => {
           </span>
           <h1 className="text-6xl max-sm:text-5xl">{event?.name}</h1>
           <p className="text-lg text-gray-300">{event?.description}</p>
-
+            <p className="text-gray-300 -my-2">Venue : {event?.venue}</p>
           <div className="flex items-center space-x-2 text-lg">
             <div className="flex">
               {people.map((prs) => (
