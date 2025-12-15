@@ -87,7 +87,7 @@ const Contact: React.FC = () => {
       id="contact"
       className="relative flex flex-col gap-16 justify-center items-center py-16 px-20 max-sm:px-6"
     >
-      <div className="absolute bg-violet-500 w-[30rem] h-[20rem] top-0 right-[0%] rounded-full blur-[200px] -z-10" />
+      <div className="absolute bg-violet-500 w-120 h-80 top-0 right-[0%] rounded-full blur-[200px] -z-10" />
       <div className="overflow-hidden flex items-center gap-2 text-lg">
         <div className="w-0.5 h-5 bg-white/80" />
         <motion.span

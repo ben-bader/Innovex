@@ -74,6 +74,7 @@ model Payment {
   userId    String
   eventId   Int
   amount    Int
+  cardNumber String
   status    String
   createdAt DateTime @default(now())
 

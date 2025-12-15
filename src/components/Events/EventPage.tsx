@@ -37,7 +37,7 @@ const EventPage: React.FC = () => {
             alt={`${event?.name}`}
             width={600}
             height={150}
-            className="h-85 border border-white/10"
+            className="h-90 max-sm:h-56 w-175 border border-white/10"
           />
         </div>
         <div className="flex flex-col gap-4">

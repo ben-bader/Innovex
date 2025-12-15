@@ -1,19 +1,19 @@
-
 import { ReactNode } from "react";
-import  '@/app/globals.css';
+import "@/app/globals.css";
+import SessionProvider from "@/src/components/SeesionProvider";
 
-export  const metadata ={
-  title : "Innovex | Checkout"
-}
+export const metadata = {
+  title: "Innovex | Checkout",
+};
 
-const layout = ({children}:{children ?: ReactNode}) => {
+const layout = ({ children }: { children?: ReactNode }) => {
   return (
     <html>
       <body className="bg-gray-950! text-white!">
-        {children}
+        <SessionProvider>{children}</SessionProvider>
       </body>
     </html>
-  )
-}
+  );
+};
 
-export default layout
+export default layout;

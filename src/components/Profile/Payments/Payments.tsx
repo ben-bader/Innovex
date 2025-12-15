@@ -10,7 +10,7 @@ const Payments: React.FC = () => {
   if (loading) return <p className="text-gray-400 text-center">Loading...</p>;
   if (error) return <p className="text-red-500 text-center mt-10">{error}</p>;
   if (events.length === 0)
-    return <p className="text-center mt-10">No payments found.</p>;
+    return <p className="text-center text-gray-400 mt-10">No payments found.</p>;
 
   return (
     <div className="flex flex-col gap-6 relative">
