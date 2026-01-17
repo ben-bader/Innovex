@@ -5,7 +5,6 @@ export async function POST(req: Request) {
   try {
 
     const userId = await getCurrentUserId();
-
     const body = await req.json();
 
 
@@ -15,15 +14,13 @@ export async function POST(req: Request) {
       return new Response("Bad Request: missing eventId or price", { status: 400 });
     }
 
-    const eventIdInt = Number(eventId);
-    const priceInt = Number(price);
 
-    if (isNaN(eventIdInt) || isNaN(priceInt) || priceInt <= 0) {
+    if (isNaN(eventId) || isNaN(price) || price <= 0) {
       return new Response("Bad Request: invalid eventId or price", { status: 400 });
     }
 
   
-    const event = await prisma.event.findUnique({ where: { id: eventIdInt } });
+    const event = await prisma.event.findUnique({ where: { id: eventId } });
     if (!event) {
       return new Response("Event not found", { status: 404 });
     }
@@ -31,8 +28,8 @@ export async function POST(req: Request) {
     const payment = await prisma.payment.create({
       data: {
         userId: userId, 
-        eventId: eventIdInt,
-        amount: priceInt,
+        eventId: eventId,
+        amount: price,
         cardNumber: cardNumber,
         status: "paid", 
       },
